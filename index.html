@@ -524,8 +524,16 @@ async function init(){
   updateCartCount();
   updateAccountNav();
   const params=new URLSearchParams(window.location.search);
-  const ref=params.get('ref');
-  if(ref) localStorage.setItem('fbp_ref',ref);
+const ref=params.get('ref');
+if(ref){
+  localStorage.setItem('fbp_ref',ref);
+  setTimeout(()=>{
+    showPage('auth');
+    switchAuth('register');
+    const regRefInput=document.getElementById('regRefCode');
+    if(regRefInput) regRefInput.value=ref;
+  },500);
+}
   try{
     const res=await fetch(API_URL+'/api/products');
     if(res.ok){const data=await res.json();products=Array.isArray(data)&&data.length>0?data:fallback();}
