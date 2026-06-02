@@ -215,7 +215,7 @@ footer{background:var(--dark);padding:48px 24px 24px;border-top:1px solid rgba(2
 .wishlist-page{padding:0 0 80px;}
 .wishlist-grid{padding:24px;display:grid;grid-template-columns:repeat(2,1fr);gap:2px;}
 
-  /* CHECKOUT */
+ /* CHECKOUT */
 .checkout-page{padding:0 0 80px;}
 .checkout-header{padding:24px;border-bottom:1px solid rgba(201,149,42,0.1);display:flex;align-items:center;gap:14px;background:var(--dark);}
 .checkout-header h2{font-family:var(--fd);font-size:28px;font-weight:700;color:var(--cream2);}
@@ -344,7 +344,7 @@ footer{background:var(--dark);padding:48px 24px 24px;border-top:1px solid rgba(2
     <div class="hero-scroll"><div class="hero-scroll-line"></div><span>Scroll</span></div>
   </div>
 
-<div class="features-strip">
+  <div class="features-strip">
     <div class="feature-item"><span class="feature-icon">📦</span><div class="feature-text"><p>Free Shipping</p><span>Orders over ₦50k</span></div></div>
     <div class="feature-item"><span class="feature-icon">↩️</span><div class="feature-text"><p>5-Day Returns</p><span>Full refund guaranteed</span></div></div>
     <div class="feature-item"><span class="feature-icon">🔒</span><div class="feature-text"><p>Secure Checkout</p><span>Flutterwave encrypted</span></div></div>
@@ -421,7 +421,7 @@ footer{background:var(--dark);padding:48px 24px 24px;border-top:1px solid rgba(2
   <div class="products-section"><div class="product-grid" id="allProductGrid"><div class="loading">Loading collection...</div></div></div>
 </div>
 
-  <!-- PRODUCT DETAIL -->
+<!-- PRODUCT DETAIL -->
 <div id="productDetail" class="page">
   <button class="back-btn" onclick="showPage('products')">← Back to collection</button>
   <div class="product-detail">
@@ -520,9 +520,9 @@ footer{background:var(--dark);padding:48px 24px 24px;border-top:1px solid rgba(2
     </div>
     <button class="btn-gold" onclick="showPage('home')" style="width:100%;margin-bottom:12px;">Continue Shopping</button>
   </div>
-      </div>
+</div>
 
-  <!-- ACCOUNT -->
+ <!-- ACCOUNT -->
 <div id="account" class="page">
   <div class="account-page">
     <div class="account-header">
@@ -591,7 +591,19 @@ footer{background:var(--dark);padding:48px 24px 24px;border-top:1px solid rgba(2
         <div class="form-group"><label>Email</label><input type="email" id="loginEmail" placeholder="your@email.com"></div>
         <div class="form-group"><label>Password</label><input type="password" id="loginPassword" placeholder="Your password"></div>
         <button class="btn-gold" style="width:100%;margin-top:8px;" onclick="loginUser()">Login</button>
-        <p style="text-align:center;margin-top:18px;font-size:12px;color:var(--stone);">Or <a onclick="showPage('checkout')" style="color:var(--gold);cursor:pointer;">continue as guest</a></p>
+        <p style="text-align:center;margin-top:12px;font-size:12px;color:var(--stone);"><a onclick="switchAuth('forgot')" style="color:var(--gold);cursor:pointer;">Forgot Password?</a></p>
+        <p style="text-align:center;margin-top:6px;font-size:12px;color:var(--stone);">Or <a onclick="showPage('checkout')" style="color:var(--gold);cursor:pointer;">continue as guest</a></p>
+      </div>
+      <div id="forgotForm" style="display:none;">
+        <p style="color:var(--stone);font-size:13px;margin-bottom:16px;">Enter your email and we'll send you a link to reset your password.</p>
+        <div class="form-group"><label>Email</label><input type="email" id="forgotEmail" placeholder="your@email.com"></div>
+        <button class="btn-gold" style="width:100%;margin-top:8px;" onclick="forgotPassword()">Send Reset Link</button>
+        <p style="text-align:center;margin-top:12px;font-size:12px;color:var(--stone);"><a onclick="switchAuth('login')" style="color:var(--gold);cursor:pointer;">Back to Login</a></p>
+      </div>
+      <div id="resetForm" style="display:none;">
+        <p style="color:var(--stone);font-size:13px;margin-bottom:16px;">Enter your new password below.</p>
+        <div class="form-group"><label>New Password</label><input type="password" id="resetNewPassword" placeholder="Enter new password"></div>
+        <button class="btn-gold" style="width:100%;margin-top:8px;" onclick="resetPassword()">Reset Password</button>
       </div>
       <div id="registerForm" style="display:none;">
         <div class="form-group"><label>Full Name</label><input type="text" id="regName" placeholder="Your full name"></div>
@@ -610,9 +622,9 @@ footer{background:var(--dark);padding:48px 24px 24px;border-top:1px solid rgba(2
 
 <a href="https://wa.me/2348109443159" target="_blank" class="whatsapp-float" title="Chat with us on WhatsApp">
   <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-</a>
+ </a>
 
-<script>
+  <script>
 const API_URL='https://fadsbyphuray-backend.onrender.com';
 const FLW_PUBLIC_KEY='FLWPUBK-335ad18f9594d627bd1bbce920876251-X';
 const SHIPPING_ZONES={'island':{fee:7000},'mainland':{fee:6000},'other-lagos':{fee:5000},'other-states':{fee:8500}};
@@ -631,9 +643,15 @@ async function init(){
   updateAccountNav();
   const params=new URLSearchParams(window.location.search);
   const ref=params.get('ref');
-  if(ref){
+  const resetToken=params.get('reset');
+  if(resetToken){
+    setTimeout(()=>{showPage('auth');switchAuth('reset');},300);
+  } else if(ref){
     localStorage.setItem('fbp_ref',ref);
     setTimeout(()=>{showPage('auth');switchAuth('register');const i=document.getElementById('regRefCode');if(i)i.value=ref;},500);
+  } else if(currentUser){
+    // Restore logged-in user to their last page or home
+    updateAccountNav();
   }
   try{
     const res=await fetch(API_URL+'/api/products');
@@ -644,14 +662,14 @@ async function init(){
   renderAllProducts();
 }
 
-  function fallback(){return[{id:1,name:'Ankara Wrap Dress',price:35000,category:'Dresses',description:'A vibrant hand-printed Ankara wrap dress with bold geometric patterns.',sizes:['XS','S','M','L','XL'],colours:['Blue & Gold','Red & Black','Green & Yellow'],inStock:true},{id:2,name:'Agbada Ensemble',price:85000,category:'Traditional Wear',description:'Flowing three-piece Agbada set crafted from premium Aso-oke fabric.',sizes:['S','M','L','XL','2XL'],colours:['Royal Blue','White','Burgundy'],inStock:true},{id:3,name:'Lace Iro & Buba',price:55000,category:'Traditional Wear',description:'Elegant lace Iro and Buba set with intricate floral lace patterns.',sizes:['S','M','L','XL'],colours:['Gold','Ivory','Coral'],inStock:true},{id:4,name:'Kaftan Jumpsuit',price:28000,category:'Jumpsuits',description:'Contemporary kaftan-inspired jumpsuit.',sizes:['XS','S','M','L','XL'],colours:['Black & Kente','Navy & Terracotta'],inStock:true},{id:5,name:'Adire Co-ord Set',price:42000,category:'Sets',description:'Hand-dyed Adire two-piece co-ord set.',sizes:['S','M','L'],colours:['Indigo','Earth Tones'],inStock:false},{id:6,name:'Ember Wrap Coat',price:1000,category:'Outerwear',description:'A luxurious wrap coat in burnt orange.',sizes:['M'],colours:['Burnt Orange'],inStock:true}];}
+function fallback(){return[{id:1,name:'Ankara Wrap Dress',price:35000,category:'Dresses',description:'A vibrant hand-printed Ankara wrap dress with bold geometric patterns.',sizes:['XS','S','M','L','XL'],colours:['Blue & Gold','Red & Black','Green & Yellow'],inStock:true},{id:2,name:'Agbada Ensemble',price:85000,category:'Traditional Wear',description:'Flowing three-piece Agbada set crafted from premium Aso-oke fabric.',sizes:['S','M','L','XL','2XL'],colours:['Royal Blue','White','Burgundy'],inStock:true},{id:3,name:'Lace Iro & Buba',price:55000,category:'Traditional Wear',description:'Elegant lace Iro and Buba set with intricate floral lace patterns.',sizes:['S','M','L','XL'],colours:['Gold','Ivory','Coral'],inStock:true},{id:4,name:'Kaftan Jumpsuit',price:28000,category:'Jumpsuits',description:'Contemporary kaftan-inspired jumpsuit.',sizes:['XS','S','M','L','XL'],colours:['Black & Kente','Navy & Terracotta'],inStock:true},{id:5,name:'Adire Co-ord Set',price:42000,category:'Sets',description:'Hand-dyed Adire two-piece co-ord set.',sizes:['S','M','L'],colours:['Indigo','Earth Tones'],inStock:false},{id:6,name:'Ember Wrap Coat',price:1000,category:'Outerwear',description:'A luxurious wrap coat in burnt orange.',sizes:['M'],colours:['Burnt Orange'],inStock:true}];}
 
 function productCardHTML(p,showWishBtn=true){
   const inWish=wishlist.some(w=>w.id==p.id);
   return`<div class="product-card" onclick="openProduct(${p.id})">
     <div class="product-img">
       ${p.images&&p.images.length>0?`<img src="${p.images[0]}" alt="${p.name}" loading="lazy">`:`<div class="product-img-placeholder"><span>👗</span><p>Photo</p></div>`}
-      ${!p.inStock?'<span class="product-badge" style="background:var(--stone);">Sold Out</span>':''}
+
       ${showWishBtn?`<button class="product-wishlist-btn" onclick="event.stopPropagation();toggleWishlist(${p.id})">${inWish?'♥':'♡'}</button>`:''}
     </div>
     <div class="product-info">
@@ -774,7 +792,7 @@ function renderWishlist(){
   </div>`;
 }
 
- function saveCart(){localStorage.setItem('fbp_cart',JSON.stringify(cart));updateCartCount();}
+function saveCart(){localStorage.setItem('fbp_cart',JSON.stringify(cart));updateCartCount();}
 function updateCartCount(){document.getElementById('cartCount').textContent=cart.reduce((s,i)=>s+i.qty,0);}
 
 function updateShipping(){
@@ -805,7 +823,7 @@ function renderCheckoutSummary(){
   document.getElementById('checkoutSummary').innerHTML=`<h4>Order Summary</h4>${cart.map(i=>`<div class="order-mini-item"><span>${i.name} (${i.size}) x${i.qty}</span><strong>₦${(i.price*i.qty).toLocaleString()}</strong></div>`).join('')}<div class="order-mini-item"><span>Shipping</span><strong>${hasZone&&currentShippingFee===0?'Free':'₦'+currentShippingFee.toLocaleString()}</strong></div><div class="order-mini-total"><span>Total</span><strong>₦${total.toLocaleString()}</strong></div>`;
 }
 
-function processPayment(){
+  function processPayment(){
   const name=document.getElementById('custName').value.trim();
   const email=document.getElementById('custEmail').value.trim();
   const phone=document.getElementById('custPhone').value.trim();
@@ -869,6 +887,8 @@ function copyMyReferralLink(){const link=document.getElementById('myReferralLink
 function switchAuth(mode){
   document.getElementById('loginForm').style.display=mode==='login'?'block':'none';
   document.getElementById('registerForm').style.display=mode==='register'?'block':'none';
+  document.getElementById('forgotForm').style.display=mode==='forgot'?'block':'none';
+  document.getElementById('resetForm').style.display=mode==='reset'?'block':'none';
   document.getElementById('loginToggle').classList.toggle('active',mode==='login');
   document.getElementById('registerToggle').classList.toggle('active',mode==='register');
 }
@@ -901,6 +921,39 @@ async function registerUser(){
 }
 
 function logout(){currentUser=null;localStorage.removeItem('fbp_user');updateAccountNav();showPage('home');showToast('Logged out successfully');}
+
+async function forgotPassword(){
+  const email=document.getElementById('forgotEmail').value.trim();
+  if(!email){showToast('Please enter your email');return;}
+  try{
+    const res=await fetch(API_URL+'/api/auth/forgot-password',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email})});
+    const data=await res.json();
+    if(res.ok){showToast('Reset link sent! Check your email ✓');}
+    else{showToast(data.error||'Failed to send reset link');}
+  }catch(e){showToast('Failed to send reset link. Try again.');}
+}
+
+async function resetPassword(){
+  const newPassword=document.getElementById('resetNewPassword').value.trim();
+  if(!newPassword){showToast('Please enter a new password');return;}
+  const params=new URLSearchParams(window.location.search);
+  const token=params.get('reset');
+  const email=params.get('email');
+  if(!token||!email){showToast('Invalid reset link');return;}
+  try{
+    const res=await fetch(API_URL+'/api/auth/reset-password',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email,token,newPassword})});
+    const data=await res.json();
+    if(res.ok){showToast('Password reset successfully! Please login ✓');window.history.replaceState({},'',window.location.pathname);switchAuth('login');}
+    else{showToast(data.error||'Reset failed');}
+  }catch(e){showToast('Reset failed. Try again.');}
+}
+
+// Auto-refresh account data every 15 seconds when user is logged in
+setInterval(()=>{
+  if(currentUser&&document.getElementById('account').classList.contains('active')){
+    loadAccountData();
+  }
+},15000);
 
 function updateAccountNav(){
   if(currentUser){
@@ -964,9 +1017,9 @@ async function loadAccountData(){
     }
   }catch(e){console.log('Withdrawals load:',e);}
   loadOrders();
-  }
+}
 
- async function loadOrders(){
+async function loadOrders(){
   if(!currentUser) return;
   const el=document.getElementById('myOrders');
   try{
@@ -1044,4 +1097,4 @@ window.addEventListener('DOMContentLoaded', init);
 </body>
 </html>
 
- 
+  
