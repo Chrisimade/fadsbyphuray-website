@@ -6,285 +6,380 @@
 <title>Fads by Phuray — Luxury Fashion</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;0,900;1,400;1,700&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
 <script src="https://checkout.flutterwave.com/v3.js"></script>
 <style>
-:root{--bd:#1E1208;--bm:#3D1F0A;--bl:#6B3A1F;--or:#C4511A;--ol:#E8793A;--go:#C9952A;--gl:#E8C060;--cr:#F5ECD8;--cl:#FAF6F0;--st:#D4B896;--mu:#9C7A58;--fd:'Cormorant Garamond',serif;--fb:'Jost',sans-serif;}
+:root{
+  --black:#0A0705;
+  --dark:#120D09;
+  --dark2:#1C1410;
+  --dark3:#2A1E14;
+  --orange:#C4511A;
+  --orange2:#E8793A;
+  --gold:#C9952A;
+  --gold2:#E8C060;
+  --gold3:#F5D98A;
+  --brown:#3D1F0A;
+  --cream:#F5ECD8;
+  --cream2:#FAF6F0;
+  --stone:#8B6A45;
+  --stone2:#B89470;
+  --fd:'Playfair Display',serif;
+  --fb:'Raleway',sans-serif;
+}
 *{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
-body{font-family:var(--fb);background:var(--cl);color:var(--bd);overflow-x:hidden;}
-.ann{background:var(--bd);color:var(--gl);text-align:center;padding:9px 16px;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;}
-nav{background:var(--cl);border-bottom:1px solid var(--st);padding:0 20px;height:60px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;}
-.logo{font-family:var(--fd);font-size:20px;font-weight:500;color:var(--bd);letter-spacing:0.06em;cursor:pointer;}
-.logo span{color:var(--go);}
-.nav-actions{display:flex;gap:18px;align-items:center;}
-.nav-btn{background:none;border:none;cursor:pointer;font-size:20px;color:var(--bm);position:relative;padding:4px;}
-.cart-count{position:absolute;top:-2px;right:-4px;background:var(--or);color:white;font-size:9px;width:16px;height:16px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--fb);font-weight:500;}
+body{font-family:var(--fb);background:var(--black);color:var(--cream2);overflow-x:hidden;}
+
+/* ANNOUNCEMENT */
+.ann{background:var(--gold);color:var(--black);text-align:center;padding:10px 16px;font-size:10px;letter-spacing:0.2em;text-transform:uppercase;font-weight:600;}
+
+/* NAV */
+nav{background:var(--black);border-bottom:1px solid rgba(201,149,42,0.2);padding:0 20px;height:64px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;}
+.logo{font-family:var(--fd);font-size:22px;font-weight:700;color:var(--cream2);letter-spacing:0.04em;cursor:pointer;}
+.logo span{color:var(--gold);}
+.nav-actions{display:flex;gap:20px;align-items:center;}
+.nav-btn{background:none;border:none;cursor:pointer;font-size:20px;color:var(--stone2);position:relative;padding:4px;}
+.nav-btn:hover{color:var(--gold);}
+.badge{position:absolute;top:-2px;right:-4px;background:var(--orange);color:white;font-size:9px;width:16px;height:16px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--fb);font-weight:600;}
+
+/* PAGES */
 .page{display:none;}
 .page.active{display:block;}
-.hero{background:var(--bm);min-height:85vh;display:flex;flex-direction:column;justify-content:flex-end;padding:40px 20px;position:relative;overflow:hidden;}
-.hero-bg{position:absolute;inset:0;background:linear-gradient(135deg,var(--bd) 0%,var(--bm) 50%,var(--bl) 100%);}
-.hero-pattern{position:absolute;inset:0;opacity:0.04;background-image:repeating-linear-gradient(45deg,var(--go) 0,var(--go) 1px,transparent 0,transparent 50%);background-size:20px 20px;}
-.hero-glow{position:absolute;top:20%;right:-10%;width:300px;height:300px;background:radial-gradient(circle,rgba(201,149,42,0.15) 0%,transparent 70%);border-radius:50%;}
+
+/* HERO */
+.hero{background:var(--dark);min-height:90vh;display:flex;flex-direction:column;justify-content:flex-end;padding:48px 24px;position:relative;overflow:hidden;}
+.hero-bg{position:absolute;inset:0;background:linear-gradient(160deg,var(--black) 0%,var(--dark2) 40%,var(--brown) 100%);}
+.hero-glow1{position:absolute;top:-20%;right:-20%;width:400px;height:400px;background:radial-gradient(circle,rgba(201,149,42,0.12) 0%,transparent 70%);border-radius:50%;}
+.hero-glow2{position:absolute;bottom:10%;left:-10%;width:300px;height:300px;background:radial-gradient(circle,rgba(196,81,26,0.08) 0%,transparent 70%);border-radius:50%;}
+.hero-line{position:absolute;top:0;right:80px;width:1px;height:100%;background:linear-gradient(to bottom,transparent,rgba(201,149,42,0.3),transparent);}
 .hero-content{position:relative;z-index:1;}
-.hero-tag{font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--go);margin-bottom:14px;display:flex;align-items:center;gap:10px;}
-.hero-tag::before{content:'';display:block;width:30px;height:1px;background:var(--go);}
-.hero-title{font-family:var(--fd);font-size:clamp(42px,10vw,72px);font-weight:300;line-height:1.05;color:var(--cl);margin-bottom:20px;letter-spacing:-0.01em;}
-.hero-title em{font-style:italic;color:var(--gl);}
-.hero-sub{font-size:13px;color:var(--st);line-height:1.8;max-width:280px;margin-bottom:32px;font-weight:300;}
-.hero-btns{display:flex;gap:12px;flex-wrap:wrap;}
-.btn-primary{background:var(--go);color:var(--bd);border:none;padding:14px 28px;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;cursor:pointer;font-family:var(--fb);font-weight:500;transition:background 0.2s;}
-.btn-primary:hover{background:var(--gl);}
-.btn-outline{background:transparent;color:var(--st);border:1px solid rgba(212,184,150,0.4);padding:14px 28px;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;cursor:pointer;font-family:var(--fb);font-weight:400;}
-.hero-scroll{position:absolute;bottom:30px;right:20px;display:flex;flex-direction:column;align-items:center;gap:6px;z-index:1;}
-.hero-scroll span{font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:var(--mu);writing-mode:vertical-rl;}
-.hero-scroll-line{width:1px;height:40px;background:linear-gradient(to bottom,var(--mu),transparent);animation:scrollLine 1.5s ease-in-out infinite;}
-@keyframes scrollLine{0%,100%{opacity:0.3;transform:scaleY(0.8);}50%{opacity:1;transform:scaleY(1);}}
-.features-strip{background:var(--cr);border-bottom:1px solid var(--st);display:flex;overflow-x:auto;scrollbar-width:none;}
+.hero-eyebrow{display:flex;align-items:center;gap:12px;margin-bottom:16px;}
+.hero-eyebrow-line{width:40px;height:1px;background:var(--gold);}
+.hero-eyebrow span{font-size:10px;letter-spacing:0.24em;text-transform:uppercase;color:var(--gold);font-weight:500;}
+.hero-title{font-family:var(--fd);font-size:clamp(48px,12vw,80px);font-weight:900;line-height:0.95;color:var(--cream2);margin-bottom:8px;letter-spacing:-0.02em;}
+.hero-title em{font-style:italic;color:var(--gold);display:block;}
+.hero-sub{font-size:13px;color:var(--stone2);line-height:1.9;max-width:300px;margin-bottom:36px;font-weight:300;letter-spacing:0.02em;}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap;}
+.btn-gold{background:var(--gold);color:var(--black);border:none;padding:15px 32px;font-size:10px;letter-spacing:0.18em;text-transform:uppercase;cursor:pointer;font-family:var(--fb);font-weight:600;transition:all 0.3s;}
+.btn-gold:hover{background:var(--gold2);}
+.btn-ghost{background:transparent;color:var(--stone2);border:1px solid rgba(139,106,69,0.4);padding:15px 32px;font-size:10px;letter-spacing:0.18em;text-transform:uppercase;cursor:pointer;font-family:var(--fb);font-weight:400;transition:all 0.3s;}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold);}
+.hero-scroll{position:absolute;bottom:32px;right:24px;display:flex;flex-direction:column;align-items:center;gap:8px;z-index:1;}
+.hero-scroll span{font-size:8px;letter-spacing:0.2em;text-transform:uppercase;color:var(--stone);writing-mode:vertical-rl;}
+.hero-scroll-line{width:1px;height:48px;background:linear-gradient(to bottom,var(--gold),transparent);animation:scrollLine 1.8s ease-in-out infinite;}
+@keyframes scrollLine{0%,100%{opacity:0.3;transform:scaleY(0.7);}50%{opacity:1;transform:scaleY(1);}}
+
+/* FEATURES */
+.features-strip{background:var(--dark2);border-bottom:1px solid rgba(201,149,42,0.15);display:flex;overflow-x:auto;scrollbar-width:none;}
 .features-strip::-webkit-scrollbar{display:none;}
-.feature-item{flex:0 0 auto;padding:14px 24px;display:flex;align-items:center;gap:10px;border-right:1px solid var(--st);white-space:nowrap;}
+.feature-item{flex:0 0 auto;padding:16px 28px;display:flex;align-items:center;gap:12px;border-right:1px solid rgba(201,149,42,0.1);white-space:nowrap;}
 .feature-item:last-child{border-right:none;}
-.feature-text p{font-size:12px;font-weight:500;color:var(--bm);}
-.feature-text span{font-size:11px;color:var(--mu);}
-.section{padding:48px 20px;}
-.section-header{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:28px;}
-.section-title{font-family:var(--fd);font-size:28px;font-weight:400;color:var(--bd);letter-spacing:-0.01em;}
-.section-link{font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--go);cursor:pointer;text-decoration:none;}
-.product-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;}
-.product-card{cursor:pointer;}
-.product-img{aspect-ratio:3/4;background:var(--cr);border:1px solid var(--st);display:flex;align-items:center;justify-content:center;margin-bottom:12px;position:relative;overflow:hidden;transition:transform 0.3s;}
-.product-card:hover .product-img{transform:scale(1.02);}
-.product-img-placeholder{display:flex;flex-direction:column;align-items:center;gap:8px;color:var(--st);}
-.product-img-placeholder span{font-size:32px;}
-.product-img-placeholder p{font-size:10px;letter-spacing:0.08em;text-transform:uppercase;}
-.product-img img{width:100%;height:100%;object-fit:cover;}
-.product-badge{position:absolute;top:10px;left:10px;background:var(--or);color:white;font-size:9px;letter-spacing:0.1em;text-transform:uppercase;padding:3px 8px;}
-.product-name{font-size:14px;color:var(--bd);margin-bottom:2px;font-weight:400;}
-.product-sub{font-size:11px;color:var(--mu);margin-bottom:5px;}
-.product-price{font-size:14px;color:var(--or);font-weight:500;}
-.editorial{margin:0 20px 48px;background:var(--bd);padding:36px 24px;position:relative;overflow:hidden;}
-.editorial-pattern{position:absolute;inset:0;opacity:0.05;background-image:repeating-linear-gradient(-45deg,var(--go) 0,var(--go) 1px,transparent 0,transparent 50%);background-size:16px 16px;}
-.editorial-content{position:relative;z-index:1;}
-.editorial-tag{font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--go);margin-bottom:10px;}
-.editorial-title{font-family:var(--fd);font-size:26px;font-weight:300;color:var(--cl);margin-bottom:8px;line-height:1.2;}
-.editorial-title em{font-style:italic;color:var(--gl);}
-.editorial-sub{font-size:12px;color:var(--mu);margin-bottom:20px;line-height:1.7;}
-.contact-section{background:var(--cr);padding:40px 20px;border-top:1px solid var(--st);}
-.contact-title{font-family:var(--fd);font-size:26px;font-weight:400;color:var(--bd);margin-bottom:6px;}
-.contact-sub{font-size:13px;color:var(--mu);margin-bottom:24px;line-height:1.7;}
-.contact-items{display:flex;flex-direction:column;gap:14px;}
-.contact-item{display:flex;align-items:center;gap:14px;padding:14px;background:white;border:1px solid var(--st);}
-.contact-item-icon{font-size:22px;flex-shrink:0;}
-.contact-item-text p{font-size:13px;font-weight:500;color:var(--bd);}
-.contact-item-text span{font-size:12px;color:var(--mu);}
-.policy-section{padding:40px 20px;background:var(--cl);}
-.policy-title{font-family:var(--fd);font-size:26px;font-weight:400;color:var(--bd);margin-bottom:20px;}
-.policy-item{margin-bottom:20px;padding-bottom:20px;border-bottom:1px solid var(--st);}
+.feature-icon{font-size:18px;}
+.feature-text p{font-size:12px;font-weight:600;color:var(--cream2);letter-spacing:0.04em;}
+.feature-text span{font-size:10px;color:var(--stone);letter-spacing:0.04em;}
+
+/* SECTIONS */
+.section{padding:56px 24px;background:var(--black);}
+.section-alt{padding:56px 24px;background:var(--dark);}
+.section-header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:32px;}
+.section-eyebrow{font-size:9px;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;font-weight:500;}
+.section-title{font-family:var(--fd);font-size:32px;font-weight:700;color:var(--cream2);letter-spacing:-0.01em;line-height:1.1;}
+.section-link{font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);cursor:pointer;text-decoration:none;border-bottom:1px solid rgba(201,149,42,0.3);padding-bottom:2px;}
+
+/* PRODUCT GRID */
+.product-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;}
+.product-card{cursor:pointer;background:var(--dark2);position:relative;overflow:hidden;}
+.product-img{aspect-ratio:3/4;background:var(--dark3);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;}
+.product-img::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(10,7,5,0.8) 0%,transparent 50%);opacity:0;transition:opacity 0.3s;}
+.product-card:hover .product-img::after{opacity:1;}
+.product-img-placeholder{display:flex;flex-direction:column;align-items:center;gap:8px;color:var(--stone);}
+.product-img-placeholder span{font-size:36px;}
+.product-img-placeholder p{font-size:9px;letter-spacing:0.1em;text-transform:uppercase;}
+.product-img img{width:100%;height:100%;object-fit:cover;transition:transform 0.5s;}
+.product-card:hover .product-img img{transform:scale(1.05);}
+.product-badge{position:absolute;top:12px;left:12px;background:var(--gold);color:var(--black);font-size:8px;letter-spacing:0.12em;text-transform:uppercase;padding:4px 10px;font-weight:600;z-index:1;}
+.product-badge-orange{position:absolute;top:12px;left:12px;background:var(--orange);color:white;font-size:8px;letter-spacing:0.12em;text-transform:uppercase;padding:4px 10px;font-weight:600;z-index:1;}
+.product-wishlist-btn{position:absolute;top:12px;right:12px;background:rgba(10,7,5,0.7);border:none;width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:14px;z-index:1;transition:background 0.2s;}
+.product-wishlist-btn:hover{background:var(--gold);}
+.product-info{padding:14px 16px 18px;}
+.product-name{font-family:var(--fd);font-size:15px;color:var(--cream2);margin-bottom:3px;font-weight:500;}
+.product-sub{font-size:10px;color:var(--stone);margin-bottom:6px;letter-spacing:0.06em;text-transform:uppercase;}
+.product-price{font-size:14px;color:var(--gold);font-weight:600;}
+.product-price-old{font-size:12px;color:var(--stone);text-decoration:line-through;margin-left:6px;font-weight:400;}
+
+/* EDITORIAL */
+.editorial{background:var(--dark2);padding:48px 24px;position:relative;overflow:hidden;border-top:1px solid rgba(201,149,42,0.15);border-bottom:1px solid rgba(201,149,42,0.15);}
+.editorial-glow{position:absolute;top:50%;right:-10%;transform:translateY(-50%);width:300px;height:300px;background:radial-gradient(circle,rgba(201,149,42,0.08) 0%,transparent 70%);border-radius:50%;}
+.editorial-tag{font-size:9px;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;font-weight:500;}
+.editorial-title{font-family:var(--fd);font-size:32px;font-weight:700;color:var(--cream2);margin-bottom:10px;line-height:1.1;}
+.editorial-title em{font-style:italic;color:var(--gold);}
+.editorial-sub{font-size:12px;color:var(--stone2);margin-bottom:24px;line-height:1.8;font-weight:300;}
+
+/* CONTACT */
+.contact-section{background:var(--dark);padding:48px 24px;border-top:1px solid rgba(201,149,42,0.1);}
+.contact-title{font-family:var(--fd);font-size:28px;font-weight:700;color:var(--cream2);margin-bottom:8px;}
+.contact-sub{font-size:12px;color:var(--stone);margin-bottom:28px;line-height:1.8;font-weight:300;}
+.contact-items{display:flex;flex-direction:column;gap:12px;}
+.contact-item{display:flex;align-items:center;gap:16px;padding:16px;background:var(--dark2);border:1px solid rgba(201,149,42,0.15);transition:border-color 0.2s;}
+.contact-item:hover{border-color:var(--gold);}
+.contact-icon{font-size:22px;flex-shrink:0;}
+.contact-text p{font-size:13px;font-weight:600;color:var(--cream2);margin-bottom:2px;}
+.contact-text span{font-size:11px;color:var(--stone);}
+
+/* POLICY */
+.policy-section{padding:48px 24px;background:var(--black);}
+.policy-title{font-family:var(--fd);font-size:28px;font-weight:700;color:var(--cream2);margin-bottom:24px;}
+.policy-item{margin-bottom:24px;padding-bottom:24px;border-bottom:1px solid rgba(201,149,42,0.1);}
 .policy-item:last-child{border-bottom:none;}
-.policy-item h4{font-size:13px;font-weight:500;color:var(--bd);margin-bottom:8px;}
-.policy-item p{font-size:12px;color:var(--mu);line-height:1.8;}
-footer{background:var(--bd);padding:40px 20px 20px;}
-.footer-logo{font-family:var(--fd);font-size:22px;color:var(--gl);margin-bottom:10px;font-weight:400;}
-.footer-tagline{font-size:12px;color:var(--mu);line-height:1.7;margin-bottom:28px;max-width:260px;font-weight:300;}
-.footer-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:28px;}
-.footer-col h4{font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--go);margin-bottom:14px;}
-.footer-col a{display:block;font-size:12px;color:var(--mu);margin-bottom:9px;text-decoration:none;cursor:pointer;}
-.footer-bottom{border-top:1px solid var(--bm);padding-top:16px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;}
-.footer-bottom span{font-size:11px;color:#5F5040;}
-.page-header{background:var(--bd);padding:40px 20px 32px;text-align:center;}
-.page-header h1{font-family:var(--fd);font-size:36px;font-weight:300;color:var(--cl);margin-bottom:6px;}
-.page-header p{font-size:12px;color:var(--mu);letter-spacing:0.06em;}
-.filters{padding:16px 20px;display:flex;gap:10px;overflow-x:auto;scrollbar-width:none;border-bottom:1px solid var(--st);background:var(--cr);}
+.policy-item h4{font-size:12px;font-weight:600;color:var(--gold);margin-bottom:10px;letter-spacing:0.1em;text-transform:uppercase;}
+.policy-item p{font-size:12px;color:var(--stone2);line-height:1.9;font-weight:300;}
+
+/* FOOTER */
+footer{background:var(--dark);padding:48px 24px 24px;border-top:1px solid rgba(201,149,42,0.15);}
+.footer-logo{font-family:var(--fd);font-size:24px;font-weight:700;color:var(--cream2);margin-bottom:8px;}
+.footer-logo span{color:var(--gold);}
+.footer-tagline{font-size:11px;color:var(--stone);line-height:1.8;margin-bottom:32px;max-width:260px;font-weight:300;letter-spacing:0.04em;}
+.footer-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-bottom:32px;}
+.footer-col h4{font-size:9px;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;font-weight:600;}
+.footer-col a{display:block;font-size:12px;color:var(--stone);margin-bottom:10px;text-decoration:none;cursor:pointer;transition:color 0.2s;font-weight:300;}
+.footer-col a:hover{color:var(--gold);}
+.footer-bottom{border-top:1px solid rgba(201,149,42,0.1);padding-top:18px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;}
+.footer-bottom span{font-size:10px;color:var(--stone);letter-spacing:0.06em;}
+
+/* PAGE HEADER */
+.page-header{background:var(--dark);padding:48px 24px 36px;position:relative;overflow:hidden;}
+.page-header-glow{position:absolute;top:-50%;right:-20%;width:300px;height:300px;background:radial-gradient(circle,rgba(201,149,42,0.08) 0%,transparent 70%);border-radius:50%;}
+.page-header h1{font-family:var(--fd);font-size:40px;font-weight:900;color:var(--cream2);margin-bottom:6px;position:relative;z-index:1;}
+.page-header p{font-size:11px;color:var(--stone);letter-spacing:0.1em;text-transform:uppercase;position:relative;z-index:1;}
+
+/* FILTERS */
+.filters{padding:16px 24px;display:flex;gap:10px;overflow-x:auto;scrollbar-width:none;border-bottom:1px solid rgba(201,149,42,0.1);background:var(--dark2);}
 .filters::-webkit-scrollbar{display:none;}
-.filter-btn{flex:0 0 auto;padding:8px 16px;border:1px solid var(--st);background:transparent;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;color:var(--mu);font-family:var(--fb);transition:all 0.2s;white-space:nowrap;}
-.filter-btn.active,.filter-btn:hover{background:var(--bd);color:var(--cr);border-color:var(--bd);}
-.products-section{padding:24px 20px;}
-.loading{text-align:center;padding:40px;font-size:13px;color:var(--mu);}
-.product-detail{padding:0 0 48px;}
-.product-detail-img{aspect-ratio:4/5;background:var(--cr);display:flex;align-items:center;justify-content:center;position:relative;}
+.filter-btn{flex:0 0 auto;padding:8px 18px;border:1px solid rgba(139,106,69,0.3);background:transparent;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;color:var(--stone);font-family:var(--fb);transition:all 0.2s;white-space:nowrap;font-weight:500;}
+.filter-btn.active,.filter-btn:hover{background:var(--gold);color:var(--black);border-color:var(--gold);}
+.products-section{padding:2px;background:var(--black);}
+.loading{text-align:center;padding:48px;font-size:12px;color:var(--stone);letter-spacing:0.1em;}
+
+/* PRODUCT DETAIL */
+.product-detail{padding:0 0 60px;}
+.product-detail-img{aspect-ratio:4/5;background:var(--dark2);display:flex;align-items:center;justify-content:center;position:relative;}
 .product-detail-img img{width:100%;height:100%;object-fit:cover;}
-.product-detail-body{padding:24px 20px;}
-.product-detail-cat{font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:var(--go);margin-bottom:8px;}
-.product-detail-name{font-family:var(--fd);font-size:30px;font-weight:400;color:var(--bd);margin-bottom:6px;line-height:1.15;}
-.product-detail-price{font-size:22px;font-weight:500;color:var(--or);margin-bottom:22px;}
-.detail-label{font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--mu);margin-bottom:10px;}
-.colour-options{display:flex;gap:10px;margin-bottom:22px;flex-wrap:wrap;}
-.colour-chip{padding:6px 12px;border:1px solid var(--st);font-size:11px;cursor:pointer;color:var(--mu);font-family:var(--fb);border-radius:2px;transition:all 0.2s;}
-.colour-chip.active{border-color:var(--or);background:var(--or);color:white;}
-.size-options{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px;}
-.size-btn{padding:9px 16px;border:1px solid var(--st);background:transparent;font-size:12px;cursor:pointer;color:var(--bm);font-family:var(--fb);transition:all 0.2s;}
-.size-btn.active{border-color:var(--or);background:var(--or);color:white;}
-.add-to-cart-btn{width:100%;background:var(--or);color:white;border:none;padding:16px;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;cursor:pointer;font-family:var(--fb);font-weight:500;margin-bottom:12px;}
-.wishlist-btn{width:100%;background:transparent;color:var(--bm);border:1px solid var(--st);padding:14px;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;cursor:pointer;font-family:var(--fb);margin-bottom:24px;}
-.product-desc{font-size:13px;color:var(--bl);line-height:1.8;border-top:1px solid var(--st);padding-top:20px;font-weight:300;}
+.product-detail-body{padding:28px 24px;}
+.product-detail-cat{font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;font-weight:500;}
+.product-detail-name{font-family:var(--fd);font-size:34px;font-weight:700;color:var(--cream2);margin-bottom:8px;line-height:1.1;}
+.product-detail-price{font-size:24px;font-weight:600;color:var(--gold);margin-bottom:28px;}
+.detail-label{font-size:9px;letter-spacing:0.18em;text-transform:uppercase;color:var(--stone);margin-bottom:12px;font-weight:500;}
+.colour-options{display:flex;gap:10px;margin-bottom:28px;flex-wrap:wrap;}
+.colour-chip{padding:7px 14px;border:1px solid rgba(139,106,69,0.3);font-size:11px;cursor:pointer;color:var(--stone2);font-family:var(--fb);transition:all 0.2s;font-weight:400;}
+.colour-chip.active{border-color:var(--orange);background:var(--orange);color:white;}
+.size-options{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:28px;}
+.size-btn{padding:10px 18px;border:1px solid rgba(139,106,69,0.3);background:transparent;font-size:12px;cursor:pointer;color:var(--stone2);font-family:var(--fb);transition:all 0.2s;font-weight:400;}
+.size-btn.active{border-color:var(--gold);background:var(--gold);color:var(--black);}
+.add-to-cart-btn{width:100%;background:var(--orange);color:white;border:none;padding:18px;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;cursor:pointer;font-family:var(--fb);font-weight:600;margin-bottom:12px;transition:background 0.2s;}
+.add-to-cart-btn:hover{background:var(--orange2);}
+.wishlist-btn{width:100%;background:transparent;color:var(--stone2);border:1px solid rgba(139,106,69,0.3);padding:16px;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;cursor:pointer;font-family:var(--fb);margin-bottom:28px;transition:all 0.2s;}
+.wishlist-btn:hover{border-color:var(--gold);color:var(--gold);}
+.product-desc{font-size:13px;color:var(--stone2);line-height:1.9;border-top:1px solid rgba(201,149,42,0.1);padding-top:24px;font-weight:300;}
+
+/* CART */
 .cart-page{padding:0 0 80px;}
-.cart-header{padding:24px 20px 16px;border-bottom:1px solid var(--st);display:flex;align-items:center;gap:12px;}
-.cart-header h2{font-family:var(--fd);font-size:28px;font-weight:400;color:var(--bd);}
-.cart-items{padding:20px;}
-.cart-item{display:flex;gap:14px;padding:16px 0;border-bottom:1px solid var(--st);}
-.cart-item-img{width:80px;height:100px;background:var(--cr);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:24px;color:var(--st);border:1px solid var(--st);overflow:hidden;}
+.cart-header{padding:28px 24px 18px;border-bottom:1px solid rgba(201,149,42,0.1);display:flex;align-items:center;gap:14px;background:var(--dark);}
+.cart-header h2{font-family:var(--fd);font-size:30px;font-weight:700;color:var(--cream2);}
+.cart-items{padding:20px 24px;}
+.cart-item{display:flex;gap:16px;padding:18px 0;border-bottom:1px solid rgba(201,149,42,0.08);}
+.cart-item-img{width:80px;height:100px;background:var(--dark2);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:24px;color:var(--stone);overflow:hidden;}
 .cart-item-img img{width:100%;height:100%;object-fit:cover;}
 .cart-item-details{flex:1;}
-.cart-item-name{font-size:14px;color:var(--bd);margin-bottom:3px;}
-.cart-item-meta{font-size:12px;color:var(--mu);margin-bottom:10px;}
-.cart-item-price{font-size:14px;color:var(--or);font-weight:500;margin-bottom:10px;}
+.cart-item-name{font-family:var(--fd);font-size:15px;color:var(--cream2);margin-bottom:4px;font-weight:500;}
+.cart-item-meta{font-size:11px;color:var(--stone);margin-bottom:10px;letter-spacing:0.04em;}
+.cart-item-price{font-size:14px;color:var(--gold);font-weight:600;margin-bottom:10px;}
 .qty-control{display:flex;align-items:center;}
-.qty-btn{width:30px;height:30px;border:1px solid var(--st);background:transparent;cursor:pointer;font-size:16px;color:var(--bm);display:flex;align-items:center;justify-content:center;font-family:var(--fb);}
-.qty-display{width:40px;height:30px;border-top:1px solid var(--st);border-bottom:1px solid var(--st);display:flex;align-items:center;justify-content:center;font-size:13px;color:var(--bd);}
-.cart-remove{font-size:11px;color:var(--mu);cursor:pointer;text-decoration:underline;margin-left:10px;background:none;border:none;font-family:var(--fb);}
-.cart-summary{margin:0 20px;padding:20px;background:var(--cr);border:1px solid var(--st);}
+.qty-btn{width:32px;height:32px;border:1px solid rgba(139,106,69,0.3);background:transparent;cursor:pointer;font-size:16px;color:var(--stone2);display:flex;align-items:center;justify-content:center;font-family:var(--fb);transition:all 0.2s;}
+.qty-btn:hover{background:var(--gold);color:var(--black);border-color:var(--gold);}
+.qty-display{width:40px;height:32px;border-top:1px solid rgba(139,106,69,0.3);border-bottom:1px solid rgba(139,106,69,0.3);display:flex;align-items:center;justify-content:center;font-size:13px;color:var(--cream2);}
+.cart-remove{font-size:11px;color:var(--stone);cursor:pointer;text-decoration:underline;margin-left:12px;background:none;border:none;font-family:var(--fb);}
+.cart-summary{margin:0 24px;padding:20px;background:var(--dark2);border:1px solid rgba(201,149,42,0.15);}
 .cart-summary-row{display:flex;justify-content:space-between;margin-bottom:10px;}
-.cart-summary-row span{font-size:13px;color:var(--mu);}
-.cart-summary-row strong{font-size:13px;color:var(--bd);}
-.cart-total{display:flex;justify-content:space-between;padding-top:14px;border-top:1px solid var(--st);margin-top:10px;}
-.cart-total span{font-size:15px;font-weight:500;color:var(--bd);}
-.cart-total strong{font-size:18px;color:var(--or);font-weight:500;}
-.checkout-btn{display:block;width:calc(100% - 40px);margin:16px 20px 0;background:var(--or);color:white;border:none;padding:16px;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;cursor:pointer;font-family:var(--fb);font-weight:500;text-align:center;}
-.empty-cart{padding:60px 20px;text-align:center;}
-.empty-cart p{font-family:var(--fd);font-size:22px;color:var(--mu);margin-bottom:16px;font-style:italic;}
+.cart-summary-row span{font-size:12px;color:var(--stone);}
+.cart-summary-row strong{font-size:12px;color:var(--cream2);}
+.cart-total{display:flex;justify-content:space-between;padding-top:14px;border-top:1px solid rgba(201,149,42,0.1);margin-top:8px;}
+.cart-total span{font-size:14px;font-weight:600;color:var(--cream2);}
+.cart-total strong{font-size:20px;color:var(--gold);font-weight:700;}
+.checkout-btn{display:block;width:calc(100% - 48px);margin:16px 24px 0;background:var(--gold);color:var(--black);border:none;padding:18px;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;cursor:pointer;font-family:var(--fb);font-weight:600;text-align:center;transition:background 0.2s;}
+.checkout-btn:hover{background:var(--gold2);}
+.empty-state{padding:72px 24px;text-align:center;}
+.empty-state p{font-family:var(--fd);font-size:24px;color:var(--stone);margin-bottom:20px;font-style:italic;}
+
+/* WISHLIST */
+.wishlist-page{padding:0 0 80px;}
+.wishlist-grid{padding:24px;display:grid;grid-template-columns:repeat(2,1fr);gap:2px;}
+
+/* CHECKOUT */
 .checkout-page{padding:0 0 80px;}
-.checkout-header{padding:24px 20px 16px;border-bottom:1px solid var(--st);display:flex;align-items:center;gap:12px;}
-.checkout-header h2{font-family:var(--fd);font-size:26px;font-weight:400;color:var(--bd);}
-.checkout-header span{font-size:11px;color:var(--mu);}
-.checkout-steps{display:flex;padding:0 20px;border-bottom:1px solid var(--st);}
-.checkout-step{flex:1;padding:12px 0;text-align:center;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--mu);border-bottom:2px solid transparent;}
-.checkout-step.active{color:var(--or);border-bottom-color:var(--or);}
-.checkout-form{padding:24px 20px;}
-.form-section-title{font-size:13px;font-weight:500;color:var(--bd);margin-bottom:16px;}
-.form-group{margin-bottom:14px;}
-.form-group label{display:block;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--mu);margin-bottom:6px;}
-.form-group input,.form-group select{width:100%;padding:12px 14px;border:1px solid var(--st);background:white;font-size:13px;color:var(--bd);font-family:var(--fb);outline:none;-webkit-appearance:none;border-radius:0;}
-.form-group input:focus,.form-group select:focus{border-color:var(--or);}
-.form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
-.shipping-info{background:var(--cr);border:1px solid var(--st);padding:12px 14px;margin-top:8px;font-size:12px;color:var(--mu);}
-.shipping-info strong{color:var(--or);}
-.order-summary-mini{background:var(--cr);border:1px solid var(--st);padding:16px 20px;margin:0 20px 20px;}
-.order-summary-mini h4{font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--go);margin-bottom:14px;}
-.order-mini-item{display:flex;justify-content:space-between;margin-bottom:8px;}
-.order-mini-item span{font-size:12px;color:var(--mu);}
-.order-mini-item strong{font-size:12px;color:var(--bd);}
-.order-mini-total{display:flex;justify-content:space-between;padding-top:12px;border-top:1px solid var(--st);margin-top:6px;}
-.order-mini-total span{font-size:14px;font-weight:500;color:var(--bd);}
-.order-mini-total strong{font-size:16px;color:var(--or);font-weight:500;}
-.pay-btn{display:block;width:calc(100% - 40px);margin:0 20px;background:var(--or);color:white;border:none;padding:16px;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;cursor:pointer;font-family:var(--fb);font-weight:500;text-align:center;}
-.secure-note{text-align:center;margin-top:12px;font-size:11px;color:var(--mu);display:flex;align-items:center;justify-content:center;gap:6px;}
-.guest-or{text-align:center;padding:16px 20px 0;font-size:12px;color:var(--mu);}
-.guest-or a{color:var(--go);cursor:pointer;text-decoration:underline;}
-.confirmation-page{padding:48px 20px;text-align:center;}
-.confirmation-icon{font-size:56px;margin-bottom:20px;}
-.confirmation-page h2{font-family:var(--fd);font-size:32px;font-weight:400;color:var(--bd);margin-bottom:10px;}
-.confirmation-page p{font-size:13px;color:var(--mu);line-height:1.8;margin-bottom:6px;}
-.order-ref{font-size:12px;color:var(--go);letter-spacing:0.1em;font-weight:500;margin-bottom:28px;}
-.confirmation-details{background:var(--cr);border:1px solid var(--st);padding:20px;text-align:left;margin-bottom:28px;}
-.confirmation-details h4{font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--go);margin-bottom:14px;}
+.checkout-header{padding:24px;border-bottom:1px solid rgba(201,149,42,0.1);display:flex;align-items:center;gap:14px;background:var(--dark);}
+.checkout-header h2{font-family:var(--fd);font-size:28px;font-weight:700;color:var(--cream2);}
+.checkout-header span{font-size:10px;color:var(--stone);letter-spacing:0.1em;}
+.checkout-steps{display:flex;padding:0 24px;border-bottom:1px solid rgba(201,149,42,0.1);background:var(--dark2);}
+.checkout-step{flex:1;padding:13px 0;text-align:center;font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:var(--stone);border-bottom:2px solid transparent;font-weight:500;}
+.checkout-step.active{color:var(--gold);border-bottom-color:var(--gold);}
+.checkout-form{padding:28px 24px;}
+.form-section-title{font-size:11px;font-weight:600;color:var(--cream2);margin-bottom:18px;letter-spacing:0.1em;text-transform:uppercase;}
+.form-group{margin-bottom:16px;}
+.form-group label{display:block;font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:var(--stone);margin-bottom:8px;font-weight:500;}
+.form-group input,.form-group select{width:100%;padding:13px 16px;border:1px solid rgba(139,106,69,0.3);background:var(--dark2);font-size:13px;color:var(--cream2);font-family:var(--fb);outline:none;-webkit-appearance:none;border-radius:0;transition:border-color 0.2s;}
+.form-group input:focus,.form-group select:focus{border-color:var(--gold);}
+.form-group input::placeholder{color:var(--stone);}
+.form-group select option{background:var(--dark2);color:var(--cream2);}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.shipping-info{background:var(--dark3);border:1px solid rgba(201,149,42,0.2);padding:13px 16px;margin-top:8px;font-size:12px;color:var(--stone2);}
+.shipping-info strong{color:var(--gold);}
+.order-summary-mini{background:var(--dark2);border:1px solid rgba(201,149,42,0.15);padding:18px 24px;margin:0 24px 24px;}
+.order-summary-mini h4{font-size:9px;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;font-weight:600;}
+.order-mini-item{display:flex;justify-content:space-between;margin-bottom:10px;}
+.order-mini-item span{font-size:12px;color:var(--stone);}
+.order-mini-item strong{font-size:12px;color:var(--cream2);}
+.order-mini-total{display:flex;justify-content:space-between;padding-top:14px;border-top:1px solid rgba(201,149,42,0.1);margin-top:8px;}
+.order-mini-total span{font-size:13px;font-weight:600;color:var(--cream2);}
+.order-mini-total strong{font-size:18px;color:var(--gold);font-weight:700;}
+.pay-btn{display:block;width:calc(100% - 48px);margin:0 24px;background:var(--gold);color:var(--black);border:none;padding:18px;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;cursor:pointer;font-family:var(--fb);font-weight:600;text-align:center;transition:background 0.2s;}
+.pay-btn:hover{background:var(--gold2);}
+.secure-note{text-align:center;margin-top:14px;font-size:10px;color:var(--stone);display:flex;align-items:center;justify-content:center;gap:6px;letter-spacing:0.06em;}
+.guest-or{text-align:center;padding:18px 24px 0;font-size:12px;color:var(--stone);}
+.guest-or a{color:var(--gold);cursor:pointer;text-decoration:underline;}
+
+/* CONFIRMATION */
+.confirmation-page{padding:56px 24px;text-align:center;}
+.confirmation-icon{font-size:64px;margin-bottom:24px;}
+.confirmation-page h2{font-family:var(--fd);font-size:36px;font-weight:700;color:var(--cream2);margin-bottom:10px;}
+.confirmation-page p{font-size:13px;color:var(--stone2);line-height:1.9;margin-bottom:6px;font-weight:300;}
+.order-ref{font-size:12px;color:var(--gold);letter-spacing:0.12em;font-weight:600;margin-bottom:32px;text-transform:uppercase;}
+.confirmation-details{background:var(--dark2);border:1px solid rgba(201,149,42,0.15);padding:20px;text-align:left;margin-bottom:28px;}
+.confirmation-details h4{font-size:9px;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;font-weight:600;}
 .confirmation-row{display:flex;justify-content:space-between;margin-bottom:10px;}
-.confirmation-row span{font-size:13px;color:var(--mu);}
-.confirmation-row strong{font-size:13px;color:var(--bd);}
-.referral-box{background:var(--cr);border:1px solid var(--go);padding:16px;margin:20px 0;text-align:left;}
-.referral-box h4{font-size:12px;color:var(--go);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:8px;}
-.referral-box p{font-size:12px;color:var(--mu);margin-bottom:10px;line-height:1.6;}
-.referral-link{font-size:11px;background:white;border:1px solid var(--st);padding:8px 12px;color:var(--bd);word-break:break-all;margin-bottom:8px;}
-.copy-btn{background:var(--go);color:var(--bd);border:none;padding:8px 16px;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;font-family:var(--fb);font-weight:500;}
+.confirmation-row span{font-size:12px;color:var(--stone);}
+.confirmation-row strong{font-size:12px;color:var(--cream2);}
+.referral-box{background:var(--dark2);border:1px solid rgba(201,149,42,0.3);padding:20px;margin:24px 0;text-align:left;}
+.referral-box h4{font-size:11px;color:var(--gold);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:10px;font-weight:600;}
+.referral-box p{font-size:12px;color:var(--stone2);margin-bottom:14px;line-height:1.7;font-weight:300;}
+.referral-link-box{font-size:11px;background:var(--dark3);border:1px solid rgba(139,106,69,0.3);padding:10px 14px;color:var(--cream2);word-break:break-all;margin-bottom:10px;}
+.copy-btn{background:var(--gold);color:var(--black);border:none;padding:10px 20px;font-size:10px;letter-spacing:0.12em;text-transform:uppercase;cursor:pointer;font-family:var(--fb);font-weight:600;}
+
+/* ACCOUNT */
 .account-page{padding:0 0 80px;}
-.account-header{background:var(--bd);padding:40px 20px 32px;}
-.account-header h1{font-family:var(--fd);font-size:30px;font-weight:300;color:var(--cl);margin-bottom:4px;}
-.account-header p{font-size:12px;color:var(--mu);}
-.account-tabs{display:flex;border-bottom:1px solid var(--st);background:var(--cr);overflow-x:auto;}
-.account-tab{flex:0 0 auto;padding:13px 18px;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--mu);cursor:pointer;border-bottom:2px solid transparent;background:none;border-top:none;border-left:none;border-right:none;font-family:var(--fb);white-space:nowrap;}
-.account-tab.active{color:var(--or);border-bottom-color:var(--or);}
-.account-content{padding:20px;}
+.account-header{background:var(--dark);padding:40px 24px 32px;border-bottom:1px solid rgba(201,149,42,0.1);}
+.account-header h1{font-family:var(--fd);font-size:32px;font-weight:700;color:var(--cream2);margin-bottom:4px;}
+.account-header p{font-size:12px;color:var(--stone);font-weight:300;}
+.account-tabs{display:flex;border-bottom:1px solid rgba(201,149,42,0.1);background:var(--dark2);overflow-x:auto;}
+.account-tab{flex:0 0 auto;padding:14px 18px;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--stone);cursor:pointer;border-bottom:2px solid transparent;background:none;border-top:none;border-left:none;border-right:none;font-family:var(--fb);white-space:nowrap;font-weight:500;}
+.account-tab.active{color:var(--gold);border-bottom-color:var(--gold);}
+.account-content{padding:24px;}
 .account-section{display:none;}
 .account-section.active{display:block;}
-.wallet-card{background:var(--bd);padding:24px;margin-bottom:20px;text-align:center;}
-.wallet-balance{font-size:36px;font-weight:500;color:var(--gl);margin-bottom:6px;}
-.wallet-label{font-size:11px;color:var(--mu);letter-spacing:0.1em;text-transform:uppercase;}
-.wallet-history{background:white;border:1px solid var(--st);padding:16px;margin-bottom:16px;}
-.wallet-history h4{font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--go);margin-bottom:12px;}
-.wallet-item{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--cr);font-size:13px;}
+.wallet-card{background:linear-gradient(135deg,var(--dark2),var(--brown));padding:28px;margin-bottom:24px;text-align:center;border:1px solid rgba(201,149,42,0.2);}
+.wallet-balance{font-family:var(--fd);font-size:42px;font-weight:700;color:var(--gold);margin-bottom:8px;}
+.wallet-label{font-size:10px;color:var(--stone);letter-spacing:0.14em;text-transform:uppercase;}
+.wallet-history{background:var(--dark2);border:1px solid rgba(201,149,42,0.1);padding:18px;margin-bottom:18px;}
+.wallet-history h4{font-size:9px;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;font-weight:600;}
+.wallet-item{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid rgba(201,149,42,0.06);font-size:13px;}
 .wallet-item:last-child{border-bottom:none;}
-.wallet-item span{color:var(--mu);}
-.wallet-item strong{color:var(--or);}
-.withdraw-form{background:var(--cr);border:1px solid var(--st);padding:20px;}
-.withdraw-form h4{font-size:13px;font-weight:500;color:var(--bd);margin-bottom:16px;}
+.wallet-item span{color:var(--stone);}
+.wallet-item strong{color:var(--gold);}
+.withdraw-form{background:var(--dark2);border:1px solid rgba(201,149,42,0.1);padding:20px;}
+.withdraw-form h4{font-size:11px;font-weight:600;color:var(--cream2);margin-bottom:18px;letter-spacing:0.08em;text-transform:uppercase;}
+
+  /* AUTH */
 .auth-page{padding:0 0 80px;}
-.auth-header{background:var(--bd);padding:40px 20px 32px;text-align:center;}
-.auth-header h1{font-family:var(--fd);font-size:30px;font-weight:300;color:var(--cl);margin-bottom:4px;}
-.auth-header p{font-size:12px;color:var(--mu);}
-.auth-form{padding:24px 20px;}
-.auth-toggle{display:flex;margin-bottom:24px;border:1px solid var(--st);}
-.auth-toggle-btn{flex:1;padding:12px;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;background:transparent;border:none;color:var(--mu);font-family:var(--fb);}
-.auth-toggle-btn.active{background:var(--bd);color:var(--cr);}
-.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%) translateY(100px);background:var(--bd);color:var(--cr);padding:12px 24px;font-size:12px;z-index:999;transition:transform 0.3s;white-space:nowrap;border-left:3px solid var(--go);}
+.auth-header{background:var(--dark);padding:48px 24px 36px;text-align:center;border-bottom:1px solid rgba(201,149,42,0.1);}
+.auth-header h1{font-family:var(--fd);font-size:36px;font-weight:700;color:var(--cream2);margin-bottom:6px;}
+.auth-header p{font-size:11px;color:var(--stone);letter-spacing:0.1em;text-transform:uppercase;}
+.auth-form{padding:28px 24px;}
+.auth-toggle{display:flex;margin-bottom:28px;border:1px solid rgba(139,106,69,0.3);}
+.auth-toggle-btn{flex:1;padding:14px;font-size:10px;letter-spacing:0.14em;text-transform:uppercase;cursor:pointer;background:transparent;border:none;color:var(--stone);font-family:var(--fb);font-weight:500;}
+.auth-toggle-btn.active{background:var(--gold);color:var(--black);}
+
+/* TOAST */
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(100px);background:var(--dark2);color:var(--cream2);padding:14px 28px;font-size:11px;z-index:999;transition:transform 0.3s;white-space:nowrap;border-left:3px solid var(--gold);letter-spacing:0.06em;border:1px solid rgba(201,149,42,0.3);}
 .toast.show{transform:translateX(-50%) translateY(0);}
-.back-btn{display:flex;align-items:center;gap:8px;padding:14px 20px;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--mu);cursor:pointer;background:none;border:none;border-bottom:1px solid var(--st);width:100%;text-align:left;font-family:var(--fb);}
-.whatsapp-float{position:fixed;bottom:24px;right:20px;z-index:998;background:#25D366;width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;box-shadow:0 4px 12px rgba(0,0,0,0.2);}
+
+/* BACK BTN */
+.back-btn{display:flex;align-items:center;gap:10px;padding:16px 24px;font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--stone);cursor:pointer;background:var(--dark);border:none;border-bottom:1px solid rgba(201,149,42,0.1);width:100%;text-align:left;font-family:var(--fb);font-weight:500;}
+.back-btn:hover{color:var(--gold);}
+
+/* WHATSAPP */
+.whatsapp-float{position:fixed;bottom:28px;right:24px;z-index:998;background:#25D366;width:54px;height:54px;border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;box-shadow:0 4px 20px rgba(37,211,102,0.3);}
 .whatsapp-float svg{width:28px;height:28px;fill:white;}
-@keyframes fadeUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
-.fade-up{animation:fadeUp 0.5s ease forwards;}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
+.fade-up{animation:fadeUp 0.6s ease forwards;}
 </style>
 </head>
 <body>
 
-<div class="ann">Free shipping on orders over ₦50,000 &nbsp;·&nbsp; New arrivals every Friday</div>
+<div class="ann">✦ New collection available now · Free shipping over ₦50,000 ✦</div>
 
 <nav>
   <span class="logo" onclick="showPage('home')">Fads <span>by</span> Phuray</span>
   <div class="nav-actions">
-    <button class="nav-btn" onclick="showPage('products')">🛍</button>
-    <button class="nav-btn" onclick="showPage('account')">👤</button>
-    <button class="nav-btn" onclick="showPage('cart')">🛒<span class="cart-count" id="cartCount">0</span></button>
+    <button class="nav-btn" onclick="showPage('products')" title="Shop">🛍</button>
+    <button class="nav-btn" onclick="showPage('wishlist')" title="Wishlist">♡<span class="badge" id="wishCount" style="display:none;">0</span></button>
+    <button class="nav-btn" onclick="showPage('account')" title="Account">👤</button>
+    <button class="nav-btn" onclick="showPage('cart')" title="Cart">🛒<span class="badge" id="cartCount">0</span></button>
   </div>
 </nav>
 
 <!-- HOME -->
 <div id="home" class="page active">
   <div class="hero">
-    <div class="hero-bg"></div><div class="hero-pattern"></div><div class="hero-glow"></div>
+    <div class="hero-bg"></div><div class="hero-glow1"></div><div class="hero-glow2"></div><div class="hero-line"></div>
     <div class="hero-content fade-up">
-      <p class="hero-tag">New Collection — SS25</p>
-      <h1 class="hero-title">Dressed in<br><em>golden warmth.</em></h1>
-      <p class="hero-sub">Richly crafted pieces rooted in warmth and confidence. Bold tones, elevated fabrics, silhouettes that command presence.</p>
+      <div class="hero-eyebrow"><div class="hero-eyebrow-line"></div><span>SS25 Collection</span></div>
+      <h1 class="hero-title">Where Style<br><em>Meets Soul.</em></h1>
+      <p class="hero-sub">Richly crafted pieces rooted in warmth and confidence. Bold tones, elevated fabrics, silhouettes that command every room.</p>
       <div class="hero-btns">
-        <button class="btn-primary" onclick="showPage('products')">Shop Collection</button>
-        <button class="btn-outline" onclick="showPage('products')">Lookbook</button>
+        <button class="btn-gold" onclick="showPage('products')">Shop Collection</button>
+        <button class="btn-ghost" onclick="showPage('products')">View Lookbook</button>
       </div>
     </div>
     <div class="hero-scroll"><div class="hero-scroll-line"></div><span>Scroll</span></div>
   </div>
+
   <div class="features-strip">
-    <div class="feature-item"><span>📦</span><div class="feature-text"><p>Free Shipping</p><span>Orders over ₦50k</span></div></div>
-    <div class="feature-item"><span>↩️</span><div class="feature-text"><p>5-Day Returns</p><span>Full refund guaranteed</span></div></div>
-    <div class="feature-item"><span>🔒</span><div class="feature-text"><p>Secure Checkout</p><span>Flutterwave encrypted</span></div></div>
-    <div class="feature-item"><span>🎁</span><div class="feature-text"><p>Referral Bonus</p><span>Earn up to ₦1,000</span></div></div>
+    <div class="feature-item"><span class="feature-icon">📦</span><div class="feature-text"><p>Free Shipping</p><span>Orders over ₦50k</span></div></div>
+    <div class="feature-item"><span class="feature-icon">↩️</span><div class="feature-text"><p>5-Day Returns</p><span>Full refund guaranteed</span></div></div>
+    <div class="feature-item"><span class="feature-icon">🔒</span><div class="feature-text"><p>Secure Checkout</p><span>Flutterwave encrypted</span></div></div>
+    <div class="feature-item"><span class="feature-icon">🎁</span><div class="feature-text"><p>Referral Bonus</p><span>Earn up to ₦1,000</span></div></div>
   </div>
+
   <div class="section">
     <div class="section-header">
-      <h2 class="section-title">New Arrivals</h2>
+      <div><div class="section-eyebrow">Just dropped</div><h2 class="section-title">New Arrivals</h2></div>
       <a class="section-link" onclick="showPage('products')">View all →</a>
     </div>
-    <div id="homeProductGrid"><div class="loading">Loading products...</div></div>
+    <div id="homeProductGrid"><div class="loading">Loading collection...</div></div>
   </div>
+
   <div class="editorial">
-    <div class="editorial-pattern"></div>
-    <div class="editorial-content">
-      <p class="editorial-tag">Editor's Pick</p>
-      <h3 class="editorial-title">The <em>Gold Collection</em></h3>
-      <p class="editorial-sub">Exclusively curated pieces for the modern wardrobe. Every detail considered.</p>
-      <button class="btn-primary" onclick="showPage('products')">Explore Now</button>
-    </div>
+    <div class="editorial-glow"></div>
+    <div class="editorial-tag">Editor's Pick</div>
+    <h3 class="editorial-title">The <em>Gold Collection</em></h3>
+    <p class="editorial-sub">Exclusively curated pieces for the modern wardrobe. Every detail considered, every fabric chosen with intention and craft.</p>
+    <button class="btn-gold" onclick="showPage('products')">Explore Now</button>
   </div>
+
   <div class="contact-section">
-    <h2 class="contact-title">Contact Us</h2>
-    <p class="contact-sub">We'd love to hear from you. Reach out via WhatsApp or email and we'll respond as soon as possible.</p>
+    <h2 class="contact-title">Get In Touch</h2>
+    <p class="contact-sub">We'd love to hear from you. Reach out via WhatsApp or email and we'll get back to you as soon as possible.</p>
     <div class="contact-items">
       <a href="https://wa.me/2348109443159" target="_blank" style="text-decoration:none;">
-        <div class="contact-item"><span class="contact-item-icon">💬</span><div class="contact-item-text"><p>WhatsApp</p><span>+234 810 944 3159</span></div></div>
+        <div class="contact-item"><span class="contact-icon">💬</span><div class="contact-text"><p>WhatsApp</p><span>+234 810 944 3159</span></div></div>
       </a>
       <a href="mailto:fadsbyphuray2001@gmail.com" style="text-decoration:none;">
-        <div class="contact-item"><span class="contact-item-icon">📧</span><div class="contact-item-text"><p>Email</p><span>fadsbyphuray2001@gmail.com</span></div></div>
+        <div class="contact-item"><span class="contact-icon">📧</span><div class="contact-text"><p>Email</p><span>fadsbyphuray2001@gmail.com</span></div></div>
       </a>
     </div>
   </div>
+
   <div class="policy-section">
     <h2 class="policy-title">Our Policies</h2>
     <div class="policy-item">
@@ -300,8 +395,9 @@ footer{background:var(--bd);padding:40px 20px 20px;}
       <p>Share your unique referral link. When your friend buys ₦5,000–₦15,000 you earn ₦500 bonus. For purchases of ₦20,000 and above you earn ₦1,000 bonus. Bonuses are added to your wallet and can be withdrawn anytime.</p>
     </div>
   </div>
+
   <footer>
-    <div class="footer-logo">Fads by Phuray</div>
+    <div class="footer-logo">Fads <span>by</span> Phuray</div>
     <p class="footer-tagline">Quiet luxury rooted in warmth. Every piece crafted to carry you in style and confidence.</p>
     <div class="footer-grid">
       <div class="footer-col"><h4>Shop</h4><a onclick="showPage('products')">New In</a><a onclick="showPage('products')">Women</a><a onclick="showPage('products')">Men</a><a onclick="showPage('products')">Sale</a></div>
@@ -313,7 +409,7 @@ footer{background:var(--bd);padding:40px 20px 20px;}
 
 <!-- PRODUCTS -->
 <div id="products" class="page">
-  <div class="page-header"><h1>All Products</h1><p>Discover the collection</p></div>
+  <div class="page-header"><div class="page-header-glow"></div><h1>The Collection</h1><p>Discover every piece</p></div>
   <div class="filters">
     <button class="filter-btn active" onclick="filterProducts('all',this)">All</button>
     <button class="filter-btn" onclick="filterProducts('Dresses',this)">Dresses</button>
@@ -322,14 +418,14 @@ footer{background:var(--bd);padding:40px 20px 20px;}
     <button class="filter-btn" onclick="filterProducts('Sets',this)">Sets</button>
     <button class="filter-btn" onclick="filterProducts('Outerwear',this)">Outerwear</button>
   </div>
-  <div class="products-section"><div class="product-grid" id="allProductGrid"><div class="loading">Loading products...</div></div></div>
+  <div class="products-section"><div class="product-grid" id="allProductGrid"><div class="loading">Loading collection...</div></div></div>
 </div>
 
 <!-- PRODUCT DETAIL -->
 <div id="productDetail" class="page">
-  <button class="back-btn" onclick="showPage('products')">← Back to products</button>
+  <button class="back-btn" onclick="showPage('products')">← Back to collection</button>
   <div class="product-detail">
-    <div class="product-detail-img" id="detailImg"><div class="product-img-placeholder" style="height:100%"><span style="font-size:56px">👗</span></div></div>
+    <div class="product-detail-img" id="detailImg"><div class="product-img-placeholder" style="height:100%"><span style="font-size:64px">👗</span></div></div>
     <div class="product-detail-body">
       <p class="product-detail-cat" id="detailCat"></p>
       <h2 class="product-detail-name" id="detailName"></h2>
@@ -339,9 +435,17 @@ footer{background:var(--bd);padding:40px 20px 20px;}
       <p class="detail-label">Size</p>
       <div class="size-options" id="detailSizes"></div>
       <button class="add-to-cart-btn" onclick="addToCartFromDetail()">Add to Bag</button>
-      <button class="wishlist-btn">♡ Save to Wishlist</button>
+      <button class="wishlist-btn" onclick="addToWishlistFromDetail()">♡ Save to Wishlist</button>
       <p class="product-desc" id="detailDesc"></p>
     </div>
+  </div>
+</div>
+
+<!-- WISHLIST -->
+<div id="wishlist" class="page">
+  <div class="wishlist-page">
+    <div class="page-header"><div class="page-header-glow"></div><h1>Wishlist</h1><p>Your saved pieces</p></div>
+    <div id="wishlistContent"></div>
   </div>
 </div>
 
@@ -349,7 +453,7 @@ footer{background:var(--bd);padding:40px 20px 20px;}
 <div id="cart" class="page">
   <div class="cart-page">
     <div class="cart-header">
-      <button onclick="showPage('products')" style="background:none;border:none;cursor:pointer;font-size:18px;color:var(--mu);">←</button>
+      <button onclick="showPage('products')" style="background:none;border:none;cursor:pointer;font-size:20px;color:var(--stone);">←</button>
       <h2>Your Bag</h2>
     </div>
     <div id="cartContent"></div>
@@ -360,7 +464,7 @@ footer{background:var(--bd);padding:40px 20px 20px;}
 <div id="checkout" class="page">
   <div class="checkout-page">
     <div class="checkout-header">
-      <button onclick="showPage('cart')" style="background:none;border:none;cursor:pointer;font-size:18px;color:var(--mu);">←</button>
+      <button onclick="showPage('cart')" style="background:none;border:none;cursor:pointer;font-size:20px;color:var(--stone);">←</button>
       <h2>Checkout</h2><span>🔒 Secure</span>
     </div>
     <div class="checkout-steps">
@@ -373,7 +477,7 @@ footer{background:var(--bd);padding:40px 20px 20px;}
       <div class="form-group"><label>Full Name</label><input type="text" id="custName" placeholder="Your full name"></div>
       <div class="form-group"><label>Email Address</label><input type="email" id="custEmail" placeholder="your@email.com"></div>
       <div class="form-group"><label>Phone Number</label><input type="tel" id="custPhone" placeholder="+234 800 000 0000"></div>
-      <p class="form-section-title" style="margin-top:24px;">Delivery Address</p>
+      <p class="form-section-title" style="margin-top:28px;">Delivery Address</p>
       <div class="form-group"><label>Street Address</label><input type="text" id="custAddress" placeholder="House number, street name"></div>
       <div class="form-row">
         <div class="form-group"><label>City / Area</label><input type="text" id="custCity" placeholder="e.g. Lekki"></div>
@@ -411,14 +515,14 @@ footer{background:var(--bd);padding:40px 20px 20px;}
     <div class="referral-box" id="referralBox" style="display:none;">
       <h4>🎁 Share & Earn!</h4>
       <p>Share your referral link and earn ₦500–₦1,000 for every friend who shops!</p>
-      <div class="referral-link" id="referralLinkDisplay"></div>
+      <div class="referral-link-box" id="referralLinkDisplay"></div>
       <button class="copy-btn" onclick="copyReferralLink()">Copy Link</button>
     </div>
-    <button class="btn-primary" onclick="showPage('home')" style="width:100%;margin-bottom:12px;">Continue Shopping</button>
+    <button class="btn-gold" onclick="showPage('home')" style="width:100%;margin-bottom:12px;">Continue Shopping</button>
   </div>
 </div>
 
-<!-- ACCOUNT -->
+  <!-- ACCOUNT -->
 <div id="account" class="page">
   <div class="account-page">
     <div class="account-header">
@@ -428,7 +532,7 @@ footer{background:var(--bd);padding:40px 20px 20px;}
     <div class="account-tabs">
       <button class="account-tab active" onclick="switchAccountTab('wallet',this)">Wallet</button>
       <button class="account-tab" onclick="switchAccountTab('referral',this)">Referral</button>
-      <button class="account-tab" onclick="switchAccountTab('orders',this)">My Orders</button>
+      <button class="account-tab" onclick="switchAccountTab('orders',this)">Orders</button>
       <button class="account-tab" onclick="switchAccountTab('profile',this)">Profile</button>
     </div>
     <div class="account-content">
@@ -443,32 +547,32 @@ footer{background:var(--bd);padding:40px 20px 20px;}
           <div class="form-group"><label>Bank Name</label><input type="text" id="wBank" placeholder="e.g. GTBank"></div>
           <div class="form-group"><label>Account Number</label><input type="text" id="wAccNum" placeholder="10-digit account number"></div>
           <div class="form-group"><label>Amount (₦)</label><input type="number" id="wAmount" placeholder="e.g. 1000"></div>
-          <button class="btn-primary" style="width:100%;margin-top:8px;" onclick="requestWithdrawal()">Request Withdrawal</button>
+          <button class="btn-gold" style="width:100%;margin-top:8px;" onclick="requestWithdrawal()">Request Withdrawal</button>
+        </div>
+        <div class="wallet-history" style="margin-top:20px;">
+          <h4>Transaction History</h4>
+          <div id="walletHistoryList"><div style="font-size:12px;color:var(--stone);font-style:italic;">No transactions yet</div></div>
         </div>
       </div>
       <div class="account-section" id="sec-referral">
-        <div style="background:var(--cr);border:1px solid var(--st);padding:20px;margin-bottom:16px;">
-          <h4 style="font-size:13px;font-weight:500;color:var(--bd);margin-bottom:8px;">Your Referral Link</h4>
-          <p style="font-size:12px;color:var(--mu);margin-bottom:12px;line-height:1.7;">Share this link. When your friend buys ₦5,000–₦15,000 you earn ₦500. When they buy ₦20,000+ you earn ₦1,000!</p>
-          <div class="referral-link" id="myReferralLink">Login to see your referral link</div>
-          <button class="copy-btn" style="margin-top:8px;" onclick="copyMyReferralLink()">Copy Link</button>
-        </div>
-        <div class="wallet-history">
-          <h4>Referral History</h4>
-          <div id="referralHistory"><div style="font-size:13px;color:var(--mu);font-style:italic;">No referrals yet</div></div>
+        <div style="background:var(--dark2);border:1px solid rgba(201,149,42,0.15);padding:20px;margin-bottom:18px;">
+          <h4 style="font-size:11px;font-weight:600;color:var(--cream2);margin-bottom:10px;letter-spacing:0.08em;text-transform:uppercase;">Your Referral Link</h4>
+          <p style="font-size:12px;color:var(--stone);margin-bottom:14px;line-height:1.8;font-weight:300;">Share this link. When your friend buys ₦5,000–₦15,000 you earn ₦500. When they buy ₦20,000+ you earn ₦1,000!</p>
+          <div class="referral-link-box" id="myReferralLink">Login to see your referral link</div>
+          <button class="copy-btn" style="margin-top:10px;" onclick="copyMyReferralLink()">Copy Link</button>
         </div>
       </div>
       <div class="account-section" id="sec-orders">
         <div id="myOrders"><div class="loading">Loading orders...</div></div>
       </div>
       <div class="account-section" id="sec-profile">
-        <div style="background:var(--cr);border:1px solid var(--st);padding:20px;margin-bottom:16px;">
+        <div style="background:var(--dark2);border:1px solid rgba(201,149,42,0.1);padding:20px;margin-bottom:18px;">
           <div class="form-group"><label>Full Name</label><input type="text" id="profileName"></div>
-          <div class="form-group"><label>Email</label><input type="email" id="profileEmail" disabled style="background:#f5f5f5;"></div>
+          <div class="form-group"><label>Email</label><input type="email" id="profileEmail" disabled style="opacity:0.5;"></div>
           <div class="form-group"><label>Phone</label><input type="text" id="profilePhone"></div>
-          <button class="btn-primary" style="width:100%;margin-top:8px;" onclick="updateProfile()">Save Changes</button>
+          <button class="btn-gold" style="width:100%;margin-top:8px;" onclick="updateProfile()">Save Changes</button>
         </div>
-        <button onclick="logout()" style="width:100%;background:transparent;border:1px solid var(--st);color:var(--mu);padding:14px;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;font-family:var(--fb);">Logout</button>
+        <button onclick="logout()" style="width:100%;background:transparent;border:1px solid rgba(139,106,69,0.3);color:var(--stone);padding:14px;font-size:10px;letter-spacing:0.14em;text-transform:uppercase;cursor:pointer;font-family:var(--fb);">Logout</button>
       </div>
     </div>
   </div>
@@ -486,8 +590,8 @@ footer{background:var(--bd);padding:40px 20px 20px;}
       <div id="loginForm">
         <div class="form-group"><label>Email</label><input type="email" id="loginEmail" placeholder="your@email.com"></div>
         <div class="form-group"><label>Password</label><input type="password" id="loginPassword" placeholder="Your password"></div>
-        <button class="btn-primary" style="width:100%;margin-top:8px;" onclick="loginUser()">Login</button>
-        <p style="text-align:center;margin-top:16px;font-size:12px;color:var(--mu);">Or <a onclick="showPage('checkout')" style="color:var(--go);cursor:pointer;">continue as guest</a></p>
+        <button class="btn-gold" style="width:100%;margin-top:8px;" onclick="loginUser()">Login</button>
+        <p style="text-align:center;margin-top:18px;font-size:12px;color:var(--stone);">Or <a onclick="showPage('checkout')" style="color:var(--gold);cursor:pointer;">continue as guest</a></p>
       </div>
       <div id="registerForm" style="display:none;">
         <div class="form-group"><label>Full Name</label><input type="text" id="regName" placeholder="Your full name"></div>
@@ -495,8 +599,8 @@ footer{background:var(--bd);padding:40px 20px 20px;}
         <div class="form-group"><label>Phone</label><input type="tel" id="regPhone" placeholder="+234 800 000 0000"></div>
         <div class="form-group"><label>Password</label><input type="password" id="regPassword" placeholder="Create a password"></div>
         <div class="form-group"><label>Referral Code (optional)</label><input type="text" id="regRefCode" placeholder="Enter referral code if you have one"></div>
-        <button class="btn-primary" style="width:100%;margin-top:8px;" onclick="registerUser()">Create Account</button>
-        <p style="text-align:center;margin-top:16px;font-size:12px;color:var(--mu);">Or <a onclick="showPage('checkout')" style="color:var(--go);cursor:pointer;">continue as guest</a></p>
+        <button class="btn-gold" style="width:100%;margin-top:8px;" onclick="registerUser()">Create Account</button>
+        <p style="text-align:center;margin-top:18px;font-size:12px;color:var(--stone);">Or <a onclick="showPage('checkout')" style="color:var(--gold);cursor:pointer;">continue as guest</a></p>
       </div>
     </div>
   </div>
@@ -513,6 +617,7 @@ const API_URL='https://fadsbyphuray-backend.onrender.com';
 const FLW_PUBLIC_KEY='FLWPUBK-335ad18f9594d627bd1bbce920876251-X';
 const SHIPPING_ZONES={'island':{fee:7000},'mainland':{fee:6000},'other-lagos':{fee:5000},'other-states':{fee:8500}};
 let cart=JSON.parse(localStorage.getItem('fbp_cart')||'[]');
+let wishlist=JSON.parse(localStorage.getItem('fbp_wishlist')||'[]');
 let products=[];
 let currentProduct=null;
 let selectedSize=null;
@@ -522,18 +627,14 @@ let currentUser=JSON.parse(localStorage.getItem('fbp_user')||'null');
 
 async function init(){
   updateCartCount();
+  updateWishCount();
   updateAccountNav();
   const params=new URLSearchParams(window.location.search);
-const ref=params.get('ref');
-if(ref){
-  localStorage.setItem('fbp_ref',ref);
-  setTimeout(()=>{
-    showPage('auth');
-    switchAuth('register');
-    const regRefInput=document.getElementById('regRefCode');
-    if(regRefInput) regRefInput.value=ref;
-  },500);
-}
+  const ref=params.get('ref');
+  if(ref){
+    localStorage.setItem('fbp_ref',ref);
+    setTimeout(()=>{showPage('auth');switchAuth('register');const i=document.getElementById('regRefCode');if(i)i.value=ref;},500);
+  }
   try{
     const res=await fetch(API_URL+'/api/products');
     if(res.ok){const data=await res.json();products=Array.isArray(data)&&data.length>0?data:fallback();}
@@ -543,13 +644,40 @@ if(ref){
   renderAllProducts();
 }
 
-function fallback(){return[{id:1,name:'Ankara Wrap Dress',price:35000,category:'Dresses',description:'A vibrant hand-printed Ankara wrap dress.',sizes:['XS','S','M','L','XL'],colours:['Blue & Gold','Red & Black'],inStock:true},{id:2,name:'Agbada Ensemble',price:85000,category:'Traditional Wear',description:'Flowing three-piece Agbada set.',sizes:['S','M','L','XL'],colours:['Royal Blue','White'],inStock:true},{id:3,name:'Lace Iro & Buba',price:55000,category:'Traditional Wear',description:'Elegant lace Iro and Buba set.',sizes:['S','M','L','XL'],colours:['Gold','Ivory'],inStock:true},{id:4,name:'Kaftan Jumpsuit',price:28000,category:'Jumpsuits',description:'Contemporary kaftan jumpsuit.',sizes:['XS','S','M','L','XL'],colours:['Black & Kente'],inStock:true},{id:5,name:'Adire Co-ord Set',price:42000,category:'Sets',description:'Hand-dyed Adire two-piece set.',sizes:['S','M','L'],colours:['Indigo'],inStock:false},{id:6,name:'Ember Wrap Coat',price:1000,category:'Outerwear',description:'Burnt orange wrap coat.',sizes:['M'],colours:['Burnt Orange'],inStock:true}];}
+  function fallback(){return[{id:1,name:'Ankara Wrap Dress',price:35000,category:'Dresses',description:'A vibrant hand-printed Ankara wrap dress with bold geometric patterns.',sizes:['XS','S','M','L','XL'],colours:['Blue & Gold','Red & Black','Green & Yellow'],inStock:true},{id:2,name:'Agbada Ensemble',price:85000,category:'Traditional Wear',description:'Flowing three-piece Agbada set crafted from premium Aso-oke fabric.',sizes:['S','M','L','XL','2XL'],colours:['Royal Blue','White','Burgundy'],inStock:true},{id:3,name:'Lace Iro & Buba',price:55000,category:'Traditional Wear',description:'Elegant lace Iro and Buba set with intricate floral lace patterns.',sizes:['S','M','L','XL'],colours:['Gold','Ivory','Coral'],inStock:true},{id:4,name:'Kaftan Jumpsuit',price:28000,category:'Jumpsuits',description:'Contemporary kaftan-inspired jumpsuit.',sizes:['XS','S','M','L','XL'],colours:['Black & Kente','Navy & Terracotta'],inStock:true},{id:5,name:'Adire Co-ord Set',price:42000,category:'Sets',description:'Hand-dyed Adire two-piece co-ord set.',sizes:['S','M','L'],colours:['Indigo','Earth Tones'],inStock:false},{id:6,name:'Ember Wrap Coat',price:1000,category:'Outerwear',description:'A luxurious wrap coat in burnt orange.',sizes:['M'],colours:['Burnt Orange'],inStock:true}];}
 
-function productCardHTML(p){return`<div class="product-card" onclick="openProduct(${p.id})"><div class="product-img">${p.images&&p.images.length>0?`<img src="${p.images[0]}" alt="${p.name}" loading="lazy">`:`<div class="product-img-placeholder"><span>👗</span><p>Photo</p></div>`}${!p.inStock?'<span class="product-badge" style="background:var(--mu)">Sold Out</span>':''}</div><p class="product-name">${p.name}</p><p class="product-sub">${p.category||''}</p><p class="product-price">₦${Number(p.price).toLocaleString()}</p></div>`;}
+function productCardHTML(p,showWishBtn=true){
+  const inWish=wishlist.some(w=>w.id==p.id);
+  return`<div class="product-card" onclick="openProduct(${p.id})">
+    <div class="product-img">
+      ${p.images&&p.images.length>0?`<img src="${p.images[0]}" alt="${p.name}" loading="lazy">`:`<div class="product-img-placeholder"><span>👗</span><p>Photo</p></div>`}
+      ${!p.inStock?'<span class="product-badge" style="background:var(--stone);">Sold Out</span>':''}
+      ${showWishBtn?`<button class="product-wishlist-btn" onclick="event.stopPropagation();toggleWishlist(${p.id})">${inWish?'♥':'♡'}</button>`:''}
+    </div>
+    <div class="product-info">
+      <div class="product-name">${p.name}</div>
+      <div class="product-sub">${p.category||''}</div>
+      <div class="product-price">₦${Number(p.price).toLocaleString()}</div>
+    </div>
+  </div>`;}
 
-function renderHomeProducts(){const g=document.getElementById('homeProductGrid');const items=products.filter(p=>p.inStock!==false).slice(0,4);g.innerHTML=items.length>0?`<div class="product-grid">${items.map(productCardHTML).join('')}</div>`:'<div class="loading">No products yet</div>';}
-function renderAllProducts(filter='all'){const g=document.getElementById('allProductGrid');const items=filter==='all'?products:products.filter(p=>p.category===filter);g.innerHTML=items.length>0?items.map(productCardHTML).join(''):'<div class="loading">No products in this category</div>';}
-function filterProducts(filter,btn){document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');renderAllProducts(filter);}
+function renderHomeProducts(){
+  const g=document.getElementById('homeProductGrid');
+  const items=products.filter(p=>p.inStock!==false).slice(0,4);
+  g.innerHTML=items.length>0?`<div class="product-grid">${items.map(p=>productCardHTML(p)).join('')}</div>`:'<div class="loading">No products yet</div>';
+}
+
+function renderAllProducts(filter='all'){
+  const g=document.getElementById('allProductGrid');
+  const items=filter==='all'?products:products.filter(p=>p.category===filter);
+  g.innerHTML=items.length>0?items.map(p=>productCardHTML(p)).join(''):'<div class="loading">No products in this category</div>';
+}
+
+function filterProducts(filter,btn){
+  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  renderAllProducts(filter);
+}
 
 function showPage(page){
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
@@ -557,6 +685,7 @@ function showPage(page){
   window.scrollTo(0,0);
   if(page==='cart') renderCart();
   if(page==='checkout') renderCheckoutSummary();
+  if(page==='wishlist') renderWishlist();
   if(page==='account'){if(!currentUser){showPage('auth');return;}loadAccountData();}
 }
 
@@ -569,12 +698,14 @@ function openProduct(id){
   document.getElementById('detailDesc').textContent=currentProduct.description||'';
   document.getElementById('detailCat').textContent=currentProduct.category||'Fashion';
   const imgEl=document.getElementById('detailImg');
-  imgEl.innerHTML=(currentProduct.images&&currentProduct.images.length>0)?`<img src="${currentProduct.images[0]}" alt="${currentProduct.name}">`:`<div class="product-img-placeholder" style="height:100%"><span style="font-size:56px">👗</span></div>`;
+  imgEl.innerHTML=(currentProduct.images&&currentProduct.images.length>0)?`<img src="${currentProduct.images[0]}" alt="${currentProduct.name}">`:`<div class="product-img-placeholder" style="height:100%"><span style="font-size:64px">👗</span></div>`;
   const colours=Array.isArray(currentProduct.colours)?currentProduct.colours:[currentProduct.colours||'Default'];
   document.getElementById('detailColours').innerHTML=colours.map((c,i)=>`<div class="colour-chip ${i===0?'active':''}" onclick="selectColour(this,'${c}')">${c}</div>`).join('');
   selectedColour=colours[0];
   const sizes=Array.isArray(currentProduct.sizes)?currentProduct.sizes:[currentProduct.sizes||'One Size'];
   document.getElementById('detailSizes').innerHTML=sizes.map(s=>`<button class="size-btn" onclick="selectSize(this,'${s}')">${s}</button>`).join('');
+  const inWish=wishlist.some(w=>w.id==currentProduct.id);
+  document.querySelector('.wishlist-btn').textContent=inWish?'♥ Saved to Wishlist':'♡ Save to Wishlist';
   showPage('productDetail');
 }
 
@@ -585,7 +716,62 @@ function addToCartFromDetail(){
   if(!selectedSize){showToast('Please select a size');return;}
   const ex=cart.find(i=>i.id==currentProduct.id&&i.size===selectedSize&&i.colour===selectedColour);
   if(ex){ex.qty++;}else{cart.push({id:currentProduct.id,name:currentProduct.name,price:Number(currentProduct.price),size:selectedSize,colour:selectedColour||'',qty:1,image:(currentProduct.images&&currentProduct.images[0])||null});}
-  saveCart();showToast(currentProduct.name+' added to bag');
+  saveCart();showToast(currentProduct.name+' added to bag ✓');
+}
+
+function addToWishlistFromDetail(){
+  if(!currentProduct) return;
+  toggleWishlist(currentProduct.id);
+}
+
+function toggleWishlist(id){
+  const product=products.find(p=>p.id==id);
+  if(!product) return;
+  const idx=wishlist.findIndex(w=>w.id==id);
+  if(idx>-1){
+    wishlist.splice(idx,1);
+    showToast('Removed from wishlist');
+  }else{
+    wishlist.push({id:product.id,name:product.name,price:product.price,category:product.category,images:product.images,sizes:product.sizes,colours:product.colours,inStock:product.inStock});
+    showToast('Saved to wishlist ♥');
+  }
+  localStorage.setItem('fbp_wishlist',JSON.stringify(wishlist));
+  updateWishCount();
+  if(currentProduct&&currentProduct.id==id){
+    const inWish=wishlist.some(w=>w.id==id);
+    const btn=document.querySelector('.wishlist-btn');
+    if(btn) btn.textContent=inWish?'♥ Saved to Wishlist':'♡ Save to Wishlist';
+  }
+  renderAllProducts();
+  renderHomeProducts();
+}
+
+function updateWishCount(){
+  const el=document.getElementById('wishCount');
+  if(wishlist.length>0){el.textContent=wishlist.length;el.style.display='flex';}
+  else{el.style.display='none';}
+}
+
+function renderWishlist(){
+  const el=document.getElementById('wishlistContent');
+  if(wishlist.length===0){
+    el.innerHTML=`<div class="empty-state"><p>Your wishlist is empty</p><button class="btn-gold" onclick="showPage('products')">Browse Collection</button></div>`;
+    return;
+  }
+  el.innerHTML=`<div class="wishlist-grid">${wishlist.map(p=>`
+    <div class="product-card">
+      <div class="product-img" onclick="openProduct(${p.id})" style="cursor:pointer;">
+        ${p.images&&p.images.length>0?`<img src="${p.images[0]}" alt="${p.name}" loading="lazy">`:`<div class="product-img-placeholder"><span>👗</span></div>`}
+        <button class="product-wishlist-btn" onclick="event.stopPropagation();toggleWishlist(${p.id});renderWishlist();">♥</button>
+      </div>
+      <div class="product-info">
+        <div class="product-name">${p.name}</div>
+        <div class="product-sub">${p.category||''}</div>
+        <div class="product-price">₦${Number(p.price).toLocaleString()}</div>
+        <button onclick="openProduct(${p.id})" style="width:100%;background:var(--orange);color:white;border:none;padding:10px;font-size:10px;letter-spacing:0.12em;text-transform:uppercase;cursor:pointer;font-family:var(--fb);font-weight:600;margin-top:10px;">View Item</button>
+      </div>
+    </div>`).join('')}
+  </div>`;
 }
 
 function saveCart(){localStorage.setItem('fbp_cart',JSON.stringify(cart));updateCartCount();}
@@ -603,9 +789,9 @@ function updateShipping(){
 
 function renderCart(){
   const el=document.getElementById('cartContent');
-  if(cart.length===0){el.innerHTML=`<div class="empty-cart"><p>Your bag is empty</p><button class="btn-primary" onclick="showPage('products')">Shop Now</button></div>`;return;}
+  if(cart.length===0){el.innerHTML=`<div class="empty-state"><p>Your bag is empty</p><button class="btn-gold" onclick="showPage('products')">Shop Now</button></div>`;return;}
   const subtotal=cart.reduce((s,i)=>s+i.price*i.qty,0);
-  el.innerHTML=`<div class="cart-items">${cart.map((item,idx)=>`<div class="cart-item"><div class="cart-item-img">${item.image?`<img src="${item.image}" alt="${item.name}">`:'👗'}</div><div class="cart-item-details"><p class="cart-item-name">${item.name}</p><p class="cart-item-meta">Size: ${item.size}${item.colour?' · '+item.colour:''}</p><p class="cart-item-price">₦${item.price.toLocaleString()}</p><div style="display:flex;align-items:center;"><div class="qty-control"><button class="qty-btn" onclick="changeQty(${idx},-1)">−</button><div class="qty-display">${item.qty}</div><button class="qty-btn" onclick="changeQty(${idx},1)">+</button></div><button class="cart-remove" onclick="removeItem(${idx})">Remove</button></div></div></div>`).join('')}</div><div class="cart-summary"><div class="cart-summary-row"><span>Subtotal</span><strong>₦${subtotal.toLocaleString()}</strong></div><div class="cart-summary-row"><span>Shipping</span><strong>Select zone at checkout</strong></div><div class="cart-total"><span>Subtotal</span><strong>₦${subtotal.toLocaleString()}</strong></div></div><button class="checkout-btn" onclick="showPage('checkout')">Proceed to Checkout →</button>`;
+  el.innerHTML=`<div class="cart-items">${cart.map((item,idx)=>`<div class="cart-item"><div class="cart-item-img">${item.image?`<img src="${item.image}" alt="${item.name}">`:'👗'}</div><div class="cart-item-details"><p class="cart-item-name">${item.name}</p><p class="cart-item-meta">Size: ${item.size}${item.colour?' · '+item.colour:''}</p><p class="cart-item-price">₦${item.price.toLocaleString()}</p><div style="display:flex;align-items:center;"><div class="qty-control"><button class="qty-btn" onclick="changeQty(${idx},-1)">−</button><div class="qty-display">${item.qty}</div><button class="qty-btn" onclick="changeQty(${idx},1)">+</button></div><button class="cart-remove" onclick="removeItem(${idx})">Remove</button></div></div></div>`).join('')}</div><div class="cart-summary"><div class="cart-summary-row"><span>Subtotal</span><strong>₦${subtotal.toLocaleString()}</strong></div><div class="cart-summary-row"><span>Shipping</span><strong style="color:var(--stone)">Select zone at checkout</strong></div><div class="cart-total"><span>Subtotal</span><strong>₦${subtotal.toLocaleString()}</strong></div></div><button class="checkout-btn" onclick="showPage('checkout')">Proceed to Checkout →</button>`;
 }
 
 function changeQty(idx,delta){cart[idx].qty+=delta;if(cart[idx].qty<=0)cart.splice(idx,1);saveCart();renderCart();}
@@ -614,10 +800,12 @@ function removeItem(idx){cart.splice(idx,1);saveCart();renderCart();}
 function renderCheckoutSummary(){
   const subtotal=cart.reduce((s,i)=>s+i.price*i.qty,0);
   const total=subtotal+currentShippingFee;
-  document.getElementById('checkoutSummary').innerHTML=`<h4>Order Summary</h4>${cart.map(i=>`<div class="order-mini-item"><span>${i.name} (${i.size}) x${i.qty}</span><strong>₦${(i.price*i.qty).toLocaleString()}</strong></div>`).join('')}<div class="order-mini-item"><span>Shipping</span><strong>${currentShippingFee===0&&document.getElementById('shippingZone').value?'Free':'₦'+currentShippingFee.toLocaleString()}</strong></div><div class="order-mini-total"><span>Total</span><strong>₦${total.toLocaleString()}</strong></div>`;
-}
+  const zoneEl=document.getElementById('shippingZone');
+  const hasZone=zoneEl&&zoneEl.value;
+  document.getElementById('checkoutSummary').innerHTML=`<h4>Order Summary</h4>${cart.map(i=>`<div class="order-mini-item"><span>${i.name} (${i.size}) x${i.qty}</span><strong>₦${(i.price*i.qty).toLocaleString()}</strong></div>`).join('')}<div class="order-mini-item"><span>Shipping</span><strong>${hasZone&&currentShippingFee===0?'Free':'₦'+currentShippingFee.toLocaleString()}</strong></div><div class="order-mini-total"><span>Total</span><strong>₦${total.toLocaleString()}</strong></div>`;
+  }
 
-function processPayment(){
+  function processPayment(){
   const name=document.getElementById('custName').value.trim();
   const email=document.getElementById('custEmail').value.trim();
   const phone=document.getElementById('custPhone').value.trim();
@@ -667,7 +855,7 @@ async function saveOrderToBackend(o){
 
 function showConfirmation(ref,name,email,total){
   document.getElementById('orderRef').textContent='Order #'+ref;
-  document.getElementById('confirmationDetails').innerHTML=`<h4>Order Details</h4><div class="confirmation-row"><span>Name</span><strong>${name}</strong></div><div class="confirmation-row"><span>Email</span><strong>${email}</strong></div><div class="confirmation-row"><span>Total Paid</span><strong style="color:var(--or)">₦${total.toLocaleString()}</strong></div><div class="confirmation-row"><span>Delivery</span><strong>3–7 business days</strong></div>`;
+  document.getElementById('confirmationDetails').innerHTML=`<h4>Order Details</h4><div class="confirmation-row"><span>Name</span><strong>${name}</strong></div><div class="confirmation-row"><span>Email</span><strong>${email}</strong></div><div class="confirmation-row"><span>Total Paid</span><strong style="color:var(--gold)">₦${total.toLocaleString()}</strong></div><div class="confirmation-row"><span>Delivery</span><strong>3–7 business days</strong></div>`;
   const refLink=window.location.origin+window.location.pathname+'?ref='+btoa(email);
   document.getElementById('referralLinkDisplay').textContent=refLink;
   document.getElementById('referralBox').style.display='block';
@@ -675,8 +863,8 @@ function showConfirmation(ref,name,email,total){
   showPage('confirmation');
 }
 
-function copyReferralLink(){const link=document.getElementById('referralLinkDisplay').textContent;navigator.clipboard.writeText(link).then(()=>showToast('Referral link copied!')).catch(()=>showToast('Copy the link above'));}
-function copyMyReferralLink(){const link=document.getElementById('myReferralLink').textContent;navigator.clipboard.writeText(link).then(()=>showToast('Referral link copied!')).catch(()=>showToast('Copy the link above'));}
+function copyReferralLink(){const link=document.getElementById('referralLinkDisplay').textContent;navigator.clipboard.writeText(link).then(()=>showToast('Referral link copied! ✓')).catch(()=>showToast('Copy the link above'));}
+function copyMyReferralLink(){const link=document.getElementById('myReferralLink').textContent;navigator.clipboard.writeText(link).then(()=>showToast('Referral link copied! ✓')).catch(()=>showToast('Copy the link above'));}
 
 function switchAuth(mode){
   document.getElementById('loginForm').style.display=mode==='login'?'block':'none';
@@ -692,7 +880,7 @@ async function loginUser(){
   try{
     const res=await fetch(API_URL+'/api/auth/login',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email,password})});
     const data=await res.json();
-    if(res.ok){currentUser=data;localStorage.setItem('fbp_user',JSON.stringify(data));updateAccountNav();showPage('account');showToast('Welcome back, '+data.name+'!');}
+    if(res.ok){currentUser=data;localStorage.setItem('fbp_user',JSON.stringify(data));updateAccountNav();showPage('account');showToast('Welcome back, '+data.name+' ✓');}
     else{showToast(data.error||'Login failed');}
   }catch(e){showToast('Login failed. Try again.');}
 }
@@ -707,7 +895,7 @@ async function registerUser(){
   try{
     const res=await fetch(API_URL+'/api/auth/register',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name,email,phone,password,refCode})});
     const data=await res.json();
-    if(res.ok){currentUser=data;localStorage.setItem('fbp_user',JSON.stringify(data));updateAccountNav();showPage('account');showToast('Account created! Welcome, '+name+'!');}
+    if(res.ok){currentUser=data;localStorage.setItem('fbp_user',JSON.stringify(data));updateAccountNav();showPage('account');showToast('Welcome to Fads by Phuray, '+name+' ✓');}
     else{showToast(data.error||'Registration failed');}
   }catch(e){showToast('Registration failed. Try again.');}
 }
@@ -718,77 +906,6 @@ function updateAccountNav(){
   if(currentUser){
     document.getElementById('accountName').textContent='Hi, '+currentUser.name;
     document.getElementById('accountEmail').textContent=currentUser.email;
-    if(document.getElementById('profileName')) document.getElementById('profileName').value=currentUser.name||'';
-    if(document.getElementById('profileEmail')) document.getElementById('profileEmail').value=currentUser.email||'';
-    if(document.getElementById('profilePhone')) document.getElementById('profilePhone').value=currentUser.phone||'';
-    const refLink=window.location.origin+window.location.pathname+'?ref='+btoa(currentUser.email);
-    if(document.getElementById('myReferralLink')) document.getElementById('myReferralLink').textContent=refLink;
-  }
-}
-
-function switchAccountTab(tab,el){
-  document.querySelectorAll('.account-tab').forEach(t=>t.classList.remove('active'));
-  document.querySelectorAll('.account-section').forEach(s=>s.classList.remove('active'));
-  el.classList.add('active');
-  document.getElementById('sec-'+tab).classList.add('active');
-  if(tab==='orders') loadMyOrders();
-  if(tab==='wallet') loadWallet();
-}
-
-async function loadAccountData(){updateAccountNav();loadWallet();}
-
-async function loadWallet(){
-  if(!currentUser) return;
-  try{
-    const res=await fetch(API_URL+'/api/wallet/'+currentUser.email);
-    if(res.ok){
-      const data=await res.json();
-      document.getElementById('walletBalance').textContent='₦'+(data.balance||0).toLocaleString();
-      const histEl=document.getElementById('referralHistory');
-      if(data.history&&data.history.length>0){histEl.innerHTML=data.history.map(h=>`<div class="wallet-item"><span>${h.description}</span><strong>+₦${h.amount}</strong></div>`).join('');}
-    }
-  }catch(e){console.log('Wallet error:',e);}
-}
-
-async function loadMyOrders(){
-  if(!currentUser) return;
-  const el=document.getElementById('myOrders');
-  el.innerHTML='<div class="loading">Loading...</div>';
-  try{
-    const res=await fetch(API_URL+'/api/orders/customer/'+currentUser.email);
-    if(res.ok){
-      const orders=await res.json();
-      if(orders.length===0){el.innerHTML='<div style="text-align:center;padding:40px;color:var(--mu);font-style:italic;">No orders yet</div>';return;}
-      el.innerHTML=orders.map(o=>`<div style="background:white;border:1px solid var(--st);padding:16px;margin-bottom:12px;"><div style="display:flex;justify-content:space-between;margin-bottom:8px;"><span style="font-size:12px;color:var(--go);font-weight:500;">${o.transaction_ref||'N/A'}</span><span style="font-size:10px;padding:3px 10px;background:#FFF3CD;color:#856404;text-transform:uppercase;">${o.status||'pending'}</span></div><div style="font-size:13px;color:var(--bd);margin-bottom:4px;">${o.delivery_address||''}</div><div style="font-size:14px;color:var(--or);font-weight:500;">₦${Number(o.total_amount||0).toLocaleString()}</div></div>`).join('');
-    }
-  }catch(e){el.innerHTML='<div style="text-align:center;padding:40px;color:var(--mu);">Error loading orders</div>';}
-}
-
-async function requestWithdrawal(){
-  if(!currentUser){showToast('Please login first');return;}
-  const accName=document.getElementById('wAccName').value.trim();
-  const bank=document.getElementById('wBank').value.trim();
-  const accNum=document.getElementById('wAccNum').value.trim();
-  const amount=document.getElementById('wAmount').value.trim();
-  if(!accName||!bank||!accNum||!amount){showToast('Please fill in all fields');return;}
-  try{
-    const res=await fetch(API_URL+'/api/withdrawal',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:currentUser.email,name:currentUser.name,accountName:accName,bankName:bank,accountNumber:accNum,amount:Number(amount)})});
-    if(res.ok){showToast('Withdrawal request submitted!');document.getElementById('wAccName').value='';document.getElementById('wBank').value='';document.getElementById('wAccNum').value='';document.getElementById('wAmount').value='';}
-    else{showToast('Error submitting request');}
-  }catch(e){showToast('Error submitting request');}
-}
-
-async function updateProfile(){
-  if(!currentUser) return;
-  currentUser.name=document.getElementById('profileName').value.trim();
-  currentUser.phone=document.getElementById('profilePhone').value.trim();
-  localStorage.setItem('fbp_user',JSON.stringify(currentUser));
-  updateAccountNav();showToast('Profile updated!');
-}
-
-function showToast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),3000);}
-
-init();
-</script>
-</body>
-</html>  
+    if(document.getElementById('profileName'))document.getElementById('profileName').value=currentUser.name||'';
+    if(document.getElementById('profileEmail'))document.getElementById('profileEmail').value=currentUser.email||'';
+    if(document.getElementById('profilePhone'))document.getElementById('pro
