@@ -215,7 +215,7 @@ footer{background:var(--dark);padding:48px 24px 24px;border-top:1px solid rgba(2
 .wishlist-page{padding:0 0 80px;}
 .wishlist-grid{padding:24px;display:grid;grid-template-columns:repeat(2,1fr);gap:2px;}
 
-/* CHECKOUT */
+  /* CHECKOUT */
 .checkout-page{padding:0 0 80px;}
 .checkout-header{padding:24px;border-bottom:1px solid rgba(201,149,42,0.1);display:flex;align-items:center;gap:14px;background:var(--dark);}
 .checkout-header h2{font-family:var(--fd);font-size:28px;font-weight:700;color:var(--cream2);}
@@ -344,7 +344,7 @@ footer{background:var(--dark);padding:48px 24px 24px;border-top:1px solid rgba(2
     <div class="hero-scroll"><div class="hero-scroll-line"></div><span>Scroll</span></div>
   </div>
 
-  <div class="features-strip">
+<div class="features-strip">
     <div class="feature-item"><span class="feature-icon">📦</span><div class="feature-text"><p>Free Shipping</p><span>Orders over ₦50k</span></div></div>
     <div class="feature-item"><span class="feature-icon">↩️</span><div class="feature-text"><p>5-Day Returns</p><span>Full refund guaranteed</span></div></div>
     <div class="feature-item"><span class="feature-icon">🔒</span><div class="feature-text"><p>Secure Checkout</p><span>Flutterwave encrypted</span></div></div>
@@ -520,9 +520,9 @@ footer{background:var(--dark);padding:48px 24px 24px;border-top:1px solid rgba(2
     </div>
     <button class="btn-gold" onclick="showPage('home')" style="width:100%;margin-bottom:12px;">Continue Shopping</button>
   </div>
-</div>
+      </div>
 
- <!-- ACCOUNT -->
+  <!-- ACCOUNT -->
 <div id="account" class="page">
   <div class="account-page">
     <div class="account-header">
@@ -644,7 +644,7 @@ async function init(){
   renderAllProducts();
 }
 
-function fallback(){return[{id:1,name:'Ankara Wrap Dress',price:35000,category:'Dresses',description:'A vibrant hand-printed Ankara wrap dress with bold geometric patterns.',sizes:['XS','S','M','L','XL'],colours:['Blue & Gold','Red & Black','Green & Yellow'],inStock:true},{id:2,name:'Agbada Ensemble',price:85000,category:'Traditional Wear',description:'Flowing three-piece Agbada set crafted from premium Aso-oke fabric.',sizes:['S','M','L','XL','2XL'],colours:['Royal Blue','White','Burgundy'],inStock:true},{id:3,name:'Lace Iro & Buba',price:55000,category:'Traditional Wear',description:'Elegant lace Iro and Buba set with intricate floral lace patterns.',sizes:['S','M','L','XL'],colours:['Gold','Ivory','Coral'],inStock:true},{id:4,name:'Kaftan Jumpsuit',price:28000,category:'Jumpsuits',description:'Contemporary kaftan-inspired jumpsuit.',sizes:['XS','S','M','L','XL'],colours:['Black & Kente','Navy & Terracotta'],inStock:true},{id:5,name:'Adire Co-ord Set',price:42000,category:'Sets',description:'Hand-dyed Adire two-piece co-ord set.',sizes:['S','M','L'],colours:['Indigo','Earth Tones'],inStock:false},{id:6,name:'Ember Wrap Coat',price:1000,category:'Outerwear',description:'A luxurious wrap coat in burnt orange.',sizes:['M'],colours:['Burnt Orange'],inStock:true}];}
+  function fallback(){return[{id:1,name:'Ankara Wrap Dress',price:35000,category:'Dresses',description:'A vibrant hand-printed Ankara wrap dress with bold geometric patterns.',sizes:['XS','S','M','L','XL'],colours:['Blue & Gold','Red & Black','Green & Yellow'],inStock:true},{id:2,name:'Agbada Ensemble',price:85000,category:'Traditional Wear',description:'Flowing three-piece Agbada set crafted from premium Aso-oke fabric.',sizes:['S','M','L','XL','2XL'],colours:['Royal Blue','White','Burgundy'],inStock:true},{id:3,name:'Lace Iro & Buba',price:55000,category:'Traditional Wear',description:'Elegant lace Iro and Buba set with intricate floral lace patterns.',sizes:['S','M','L','XL'],colours:['Gold','Ivory','Coral'],inStock:true},{id:4,name:'Kaftan Jumpsuit',price:28000,category:'Jumpsuits',description:'Contemporary kaftan-inspired jumpsuit.',sizes:['XS','S','M','L','XL'],colours:['Black & Kente','Navy & Terracotta'],inStock:true},{id:5,name:'Adire Co-ord Set',price:42000,category:'Sets',description:'Hand-dyed Adire two-piece co-ord set.',sizes:['S','M','L'],colours:['Indigo','Earth Tones'],inStock:false},{id:6,name:'Ember Wrap Coat',price:1000,category:'Outerwear',description:'A luxurious wrap coat in burnt orange.',sizes:['M'],colours:['Burnt Orange'],inStock:true}];}
 
 function productCardHTML(p,showWishBtn=true){
   const inWish=wishlist.some(w=>w.id==p.id);
@@ -774,7 +774,7 @@ function renderWishlist(){
   </div>`;
 }
 
-function saveCart(){localStorage.setItem('fbp_cart',JSON.stringify(cart));updateCartCount();}
+ function saveCart(){localStorage.setItem('fbp_cart',JSON.stringify(cart));updateCartCount();}
 function updateCartCount(){document.getElementById('cartCount').textContent=cart.reduce((s,i)=>s+i.qty,0);}
 
 function updateShipping(){
@@ -920,23 +920,57 @@ function updateAccountNav(){
 async function loadAccountData(){
   if(!currentUser) return;
   updateAccountNav();
+  // Load wallet balance and history
   try{
-    const res=await fetch(API_URL+'/api/user/'+currentUser._id,{headers:{'Authorization':'Bearer '+currentUser.token}});
+    const res=await fetch(API_URL+'/api/wallet/'+encodeURIComponent(currentUser.email));
     if(res.ok){
       const data=await res.json();
-      currentUser={...currentUser,...data};
+      currentUser.walletBalance=data.balance||0;
       localStorage.setItem('fbp_user',JSON.stringify(currentUser));
-      updateAccountNav();
+      if(document.getElementById('walletBalance')) document.getElementById('walletBalance').textContent='₦'+Number(data.balance||0).toLocaleString();
+      // Render wallet transaction history
+      const histEl=document.getElementById('walletHistoryList');
+      if(histEl){
+        if(data.history&&data.history.length>0){
+          histEl.innerHTML=data.history.map(h=>`
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid rgba(201,149,42,0.08);">
+              <span style="font-size:11px;color:var(--stone2);flex:1;">${h.description||'Transaction'}</span>
+              <span style="font-size:13px;font-weight:600;color:${Number(h.amount)>=0?'var(--gold)':'var(--orange)'};">${Number(h.amount)>=0?'+':''} ₦${Math.abs(Number(h.amount)).toLocaleString()}</span>
+            </div>`).join('');
+        } else {
+          histEl.innerHTML='<div style="font-size:12px;color:var(--stone);font-style:italic;">No transactions yet</div>';
+        }
+      }
     }
-  }catch(e){console.log('Account load:',e);}
+  }catch(e){console.log('Wallet load:',e);}
+  // Load withdrawal requests
+  try{
+    const wRes=await fetch(API_URL+'/api/withdrawals');
+    if(wRes.ok){
+      const allW=await wRes.json();
+      const myW=allW.filter(w=>w.email===currentUser.email);
+      const wEl=document.getElementById('walletHistoryList');
+      if(wEl&&myW.length>0){
+        const wHtml=myW.map(w=>`
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid rgba(201,149,42,0.08);">
+            <span style="font-size:11px;color:var(--stone2);flex:1;">Withdrawal — ${w.bank_name||'Bank'} ···${(w.account_number||'').slice(-4)}</span>
+            <div style="text-align:right;">
+              <div style="font-size:13px;font-weight:600;color:var(--orange);">−₦${Number(w.amount).toLocaleString()}</div>
+              <div style="font-size:9px;letter-spacing:0.08em;text-transform:uppercase;margin-top:2px;color:${w.status==='paid'?'#4CAF50':w.status==='rejected'?'var(--orange)':'var(--stone)'};">${w.status==='paid'?'Paid ✓':w.status==='rejected'?'Rejected':'Pending…'}</div>
+            </div>
+          </div>`).join('');
+        wEl.innerHTML=(wEl.innerHTML||'')+wHtml;
+      }
+    }
+  }catch(e){console.log('Withdrawals load:',e);}
   loadOrders();
-}
+  }
 
-async function loadOrders(){
+ async function loadOrders(){
   if(!currentUser) return;
   const el=document.getElementById('myOrders');
   try{
-    const res=await fetch(API_URL+'/api/orders/user/'+currentUser._id,{headers:{'Authorization':'Bearer '+currentUser.token}});
+    const res=await fetch(API_URL+'/api/orders/customer/'+encodeURIComponent(currentUser.email));
     if(res.ok){
       const orders=await res.json();
       if(orders.length===0){
@@ -945,12 +979,12 @@ async function loadOrders(){
         el.innerHTML=orders.map(o=>`
           <div style="background:var(--dark2);border:1px solid rgba(201,149,42,0.1);padding:16px;margin-bottom:14px;">
             <div style="display:flex;justify-content:space-between;margin-bottom:10px;">
-              <span style="font-size:11px;color:var(--gold);font-weight:600;">#${o.transactionRef||o._id}</span>
-              <span style="font-size:11px;color:var(--stone);">${new Date(o.createdAt).toLocaleDateString()}</span>
+              <span style="font-size:11px;color:var(--gold);font-weight:600;">#${o.transaction_ref||o.id}</span>
+              <span style="font-size:11px;color:var(--stone);">${new Date(o.created_at).toLocaleDateString()}</span>
             </div>
-            ${(o.items||[]).map(i=>`<div style="font-size:12px;color:var(--stone2);margin-bottom:4px;">${i.name} (${i.size}) x${i.qty}</div>`).join('')}
+            ${(()=>{try{const items=typeof o.items==='string'?JSON.parse(o.items):o.items||[];return items.map(i=>`<div style="font-size:12px;color:var(--stone2);margin-bottom:4px;">${i.name} (${i.size}) x${i.qty}</div>`).join('');}catch(e){return '';}})()}
             <div style="display:flex;justify-content:space-between;margin-top:10px;padding-top:10px;border-top:1px solid rgba(201,149,42,0.1);">
-              <span style="font-size:13px;color:var(--cream2);font-weight:600;">₦${Number(o.totalAmount||0).toLocaleString()}</span>
+              <span style="font-size:13px;color:var(--cream2);font-weight:600;">₦${Number(o.total_amount||0).toLocaleString()}</span>
               <span style="font-size:10px;color:var(--stone);background:var(--dark3);padding:4px 10px;border-radius:2px;">${o.status||'Processing'}</span>
             </div>
           </div>`).join('');
@@ -961,11 +995,14 @@ async function loadOrders(){
   }catch(e){el.innerHTML='<div class="loading">Could not load orders</div>';}
 }
 
+
 function switchAccountTab(tab,btn){
   document.querySelectorAll('.account-tab').forEach(b=>b.classList.remove('active'));
   document.querySelectorAll('.account-section').forEach(s=>s.classList.remove('active'));
   btn.classList.add('active');
   document.getElementById('sec-'+tab).classList.add('active');
+  if(tab==='orders') loadOrders();
+  if(tab==='wallet') loadAccountData();
 }
 
 async function updateProfile(){
@@ -973,15 +1010,10 @@ async function updateProfile(){
   const name=document.getElementById('profileName').value.trim();
   const phone=document.getElementById('profilePhone').value.trim();
   if(!name){showToast('Please enter your name');return;}
-  try{
-    const res=await fetch(API_URL+'/api/user/'+currentUser._id,{method:'PUT',headers:{'Content-Type':'application/json','Authorization':'Bearer '+currentUser.token},body:JSON.stringify({name,phone})});
-    if(res.ok){
-      currentUser.name=name;currentUser.phone=phone;
-      localStorage.setItem('fbp_user',JSON.stringify(currentUser));
-      updateAccountNav();showToast('Profile updated ✓');
-    }else{showToast('Update failed. Try again.');}
-  }catch(e){showToast('Update failed. Try again.');}
-  }
+  currentUser.name=name;currentUser.phone=phone;
+  localStorage.setItem('fbp_user',JSON.stringify(currentUser));
+  updateAccountNav();showToast('Profile updated ✓');
+}
 
   async function requestWithdrawal(){
   if(!currentUser){showToast('Please login first');return;}
@@ -994,9 +1026,10 @@ async function updateProfile(){
   const balance=currentUser.walletBalance||0;
   if(amount>balance){showToast('Insufficient wallet balance');return;}
   try{
-    const res=await fetch(API_URL+'/api/withdrawal',{method:'POST',headers:{'Content-Type':'application/json','Authorization':'Bearer '+currentUser.token},body:JSON.stringify({userId:currentUser._id,accName,bank,accNum,amount})});
-    if(res.ok){showToast('Withdrawal request sent ✓');document.getElementById('wAmount').value='';}
-    else{showToast('Withdrawal failed. Try again.');}
+    const res=await fetch(API_URL+'/api/withdrawal',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:currentUser.email,name:currentUser.name,accountName:accName,bankName:bank,accountNumber:accNum,amount})});
+    const data=await res.json();
+    if(res.ok){showToast('Withdrawal request sent ✓');document.getElementById('wAmount').value='';loadAccountData();}
+    else{showToast(data.error||'Withdrawal failed. Try again.');}
   }catch(e){showToast('Withdrawal failed. Try again.');}
 }
 
@@ -1011,3 +1044,4 @@ window.addEventListener('DOMContentLoaded', init);
 </body>
 </html>
 
+ 
