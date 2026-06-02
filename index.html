@@ -108,7 +108,7 @@ nav{background:var(--black);border-bottom:1px solid rgba(201,149,42,0.2);padding
 .product-price{font-size:14px;color:var(--gold);font-weight:600;}
 .product-price-old{font-size:12px;color:var(--stone);text-decoration:line-through;margin-left:6px;font-weight:400;}
 
-/* EDITORIAL */
+  /* EDITORIAL */
 .editorial{background:var(--dark2);padding:48px 24px;position:relative;overflow:hidden;border-top:1px solid rgba(201,149,42,0.15);border-bottom:1px solid rgba(201,149,42,0.15);}
 .editorial-glow{position:absolute;top:50%;right:-10%;transform:translateY(-50%);width:300px;height:300px;background:radial-gradient(circle,rgba(201,149,42,0.08) 0%,transparent 70%);border-radius:50%;}
 .editorial-tag{font-size:9px;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;font-weight:500;}
@@ -211,7 +211,7 @@ footer{background:var(--dark);padding:48px 24px 24px;border-top:1px solid rgba(2
 .empty-state{padding:72px 24px;text-align:center;}
 .empty-state p{font-family:var(--fd);font-size:24px;color:var(--stone);margin-bottom:20px;font-style:italic;}
 
-/* WISHLIST */
+  /* WISHLIST */
 .wishlist-page{padding:0 0 80px;}
 .wishlist-grid{padding:24px;display:grid;grid-template-columns:repeat(2,1fr);gap:2px;}
 
@@ -288,7 +288,7 @@ footer{background:var(--dark);padding:48px 24px 24px;border-top:1px solid rgba(2
 .withdraw-form{background:var(--dark2);border:1px solid rgba(201,149,42,0.1);padding:20px;}
 .withdraw-form h4{font-size:11px;font-weight:600;color:var(--cream2);margin-bottom:18px;letter-spacing:0.08em;text-transform:uppercase;}
 
-  /* AUTH */
+/* AUTH */
 .auth-page{padding:0 0 80px;}
 .auth-header{background:var(--dark);padding:48px 24px 36px;text-align:center;border-bottom:1px solid rgba(201,149,42,0.1);}
 .auth-header h1{font-family:var(--fd);font-size:36px;font-weight:700;color:var(--cream2);margin-bottom:6px;}
@@ -310,7 +310,7 @@ footer{background:var(--dark);padding:48px 24px 24px;border-top:1px solid rgba(2
 .whatsapp-float{position:fixed;bottom:28px;right:24px;z-index:998;background:#25D366;width:54px;height:54px;border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;box-shadow:0 4px 20px rgba(37,211,102,0.3);}
 .whatsapp-float svg{width:28px;height:28px;fill:white;}
 
-@keyframes fadeUp{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
 .fade-up{animation:fadeUp 0.6s ease forwards;}
 </style>
 </head>
@@ -421,7 +421,7 @@ footer{background:var(--dark);padding:48px 24px 24px;border-top:1px solid rgba(2
   <div class="products-section"><div class="product-grid" id="allProductGrid"><div class="loading">Loading collection...</div></div></div>
 </div>
 
-<!-- PRODUCT DETAIL -->
+  <!-- PRODUCT DETAIL -->
 <div id="productDetail" class="page">
   <button class="back-btn" onclick="showPage('products')">← Back to collection</button>
   <div class="product-detail">
@@ -522,7 +522,7 @@ footer{background:var(--dark);padding:48px 24px 24px;border-top:1px solid rgba(2
   </div>
 </div>
 
-  <!-- ACCOUNT -->
+ <!-- ACCOUNT -->
 <div id="account" class="page">
   <div class="account-page">
     <div class="account-header">
@@ -644,7 +644,7 @@ async function init(){
   renderAllProducts();
 }
 
-  function fallback(){return[{id:1,name:'Ankara Wrap Dress',price:35000,category:'Dresses',description:'A vibrant hand-printed Ankara wrap dress with bold geometric patterns.',sizes:['XS','S','M','L','XL'],colours:['Blue & Gold','Red & Black','Green & Yellow'],inStock:true},{id:2,name:'Agbada Ensemble',price:85000,category:'Traditional Wear',description:'Flowing three-piece Agbada set crafted from premium Aso-oke fabric.',sizes:['S','M','L','XL','2XL'],colours:['Royal Blue','White','Burgundy'],inStock:true},{id:3,name:'Lace Iro & Buba',price:55000,category:'Traditional Wear',description:'Elegant lace Iro and Buba set with intricate floral lace patterns.',sizes:['S','M','L','XL'],colours:['Gold','Ivory','Coral'],inStock:true},{id:4,name:'Kaftan Jumpsuit',price:28000,category:'Jumpsuits',description:'Contemporary kaftan-inspired jumpsuit.',sizes:['XS','S','M','L','XL'],colours:['Black & Kente','Navy & Terracotta'],inStock:true},{id:5,name:'Adire Co-ord Set',price:42000,category:'Sets',description:'Hand-dyed Adire two-piece co-ord set.',sizes:['S','M','L'],colours:['Indigo','Earth Tones'],inStock:false},{id:6,name:'Ember Wrap Coat',price:1000,category:'Outerwear',description:'A luxurious wrap coat in burnt orange.',sizes:['M'],colours:['Burnt Orange'],inStock:true}];}
+function fallback(){return[{id:1,name:'Ankara Wrap Dress',price:35000,category:'Dresses',description:'A vibrant hand-printed Ankara wrap dress with bold geometric patterns.',sizes:['XS','S','M','L','XL'],colours:['Blue & Gold','Red & Black','Green & Yellow'],inStock:true},{id:2,name:'Agbada Ensemble',price:85000,category:'Traditional Wear',description:'Flowing three-piece Agbada set crafted from premium Aso-oke fabric.',sizes:['S','M','L','XL','2XL'],colours:['Royal Blue','White','Burgundy'],inStock:true},{id:3,name:'Lace Iro & Buba',price:55000,category:'Traditional Wear',description:'Elegant lace Iro and Buba set with intricate floral lace patterns.',sizes:['S','M','L','XL'],colours:['Gold','Ivory','Coral'],inStock:true},{id:4,name:'Kaftan Jumpsuit',price:28000,category:'Jumpsuits',description:'Contemporary kaftan-inspired jumpsuit.',sizes:['XS','S','M','L','XL'],colours:['Black & Kente','Navy & Terracotta'],inStock:true},{id:5,name:'Adire Co-ord Set',price:42000,category:'Sets',description:'Hand-dyed Adire two-piece co-ord set.',sizes:['S','M','L'],colours:['Indigo','Earth Tones'],inStock:false},{id:6,name:'Ember Wrap Coat',price:1000,category:'Outerwear',description:'A luxurious wrap coat in burnt orange.',sizes:['M'],colours:['Burnt Orange'],inStock:true}];}
 
 function productCardHTML(p,showWishBtn=true){
   const inWish=wishlist.some(w=>w.id==p.id);
@@ -722,9 +722,9 @@ function addToCartFromDetail(){
 function addToWishlistFromDetail(){
   if(!currentProduct) return;
   toggleWishlist(currentProduct.id);
-}
+  }
 
-function toggleWishlist(id){
+  function toggleWishlist(id){
   const product=products.find(p=>p.id==id);
   if(!product) return;
   const idx=wishlist.findIndex(w=>w.id==id);
@@ -803,9 +803,9 @@ function renderCheckoutSummary(){
   const zoneEl=document.getElementById('shippingZone');
   const hasZone=zoneEl&&zoneEl.value;
   document.getElementById('checkoutSummary').innerHTML=`<h4>Order Summary</h4>${cart.map(i=>`<div class="order-mini-item"><span>${i.name} (${i.size}) x${i.qty}</span><strong>₦${(i.price*i.qty).toLocaleString()}</strong></div>`).join('')}<div class="order-mini-item"><span>Shipping</span><strong>${hasZone&&currentShippingFee===0?'Free':'₦'+currentShippingFee.toLocaleString()}</strong></div><div class="order-mini-total"><span>Total</span><strong>₦${total.toLocaleString()}</strong></div>`;
-  }
+}
 
-  function processPayment(){
+function processPayment(){
   const name=document.getElementById('custName').value.trim();
   const email=document.getElementById('custEmail').value.trim();
   const phone=document.getElementById('custPhone').value.trim();
@@ -846,9 +846,9 @@ async function processReferralBonus(refCode,subtotal){
   if(bonus===0) return;
   try{await fetch(API_URL+'/api/referral-bonus',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({refCode,bonus,subtotal})});}
   catch(e){console.log('Referral error:',e);}
-}
+  }
 
-async function saveOrderToBackend(o){
+  async function saveOrderToBackend(o){
   try{await fetch(API_URL+'/api/orders',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({customerName:o.name,customerEmail:o.email,customerPhone:o.phone,deliveryAddress:o.address,totalAmount:o.total,shippingFee:o.shippingFee,shippingZone:o.zone,transactionRef:o.ref,transactionId:o.txId,referralCode:o.refCode,items:o.items})});}
   catch(e){console.log('Order save:',e);}
 }
@@ -906,6 +906,107 @@ function updateAccountNav(){
   if(currentUser){
     document.getElementById('accountName').textContent='Hi, '+currentUser.name;
     document.getElementById('accountEmail').textContent=currentUser.email;
-    if(document.getElementById('profileName'))document.getElementById('profileName').value=currentUser.name||'';
-    if(document.getElementById('profileEmail'))document.getElementById('profileEmail').value=currentUser.email||'';
-    if(document.getElementById('profilePhone'))document.getElementById('pro
+    if(document.getElementById('profileName')) document.getElementById('profileName').value=currentUser.name||'';
+    if(document.getElementById('profileEmail')) document.getElementById('profileEmail').value=currentUser.email||'';
+    if(document.getElementById('profilePhone')) document.getElementById('profilePhone').value=currentUser.phone||'';
+    if(document.getElementById('myReferralLink')){
+      const refLink=window.location.origin+window.location.pathname+'?ref='+btoa(currentUser.email);
+      document.getElementById('myReferralLink').textContent=refLink;
+    }
+    if(document.getElementById('walletBalance')) document.getElementById('walletBalance').textContent='₦'+(currentUser.walletBalance||0).toLocaleString();
+  }
+}
+
+async function loadAccountData(){
+  if(!currentUser) return;
+  updateAccountNav();
+  try{
+    const res=await fetch(API_URL+'/api/user/'+currentUser._id,{headers:{'Authorization':'Bearer '+currentUser.token}});
+    if(res.ok){
+      const data=await res.json();
+      currentUser={...currentUser,...data};
+      localStorage.setItem('fbp_user',JSON.stringify(currentUser));
+      updateAccountNav();
+    }
+  }catch(e){console.log('Account load:',e);}
+  loadOrders();
+}
+
+async function loadOrders(){
+  if(!currentUser) return;
+  const el=document.getElementById('myOrders');
+  try{
+    const res=await fetch(API_URL+'/api/orders/user/'+currentUser._id,{headers:{'Authorization':'Bearer '+currentUser.token}});
+    if(res.ok){
+      const orders=await res.json();
+      if(orders.length===0){
+        el.innerHTML='<div class="empty-state"><p>No orders yet</p><button class="btn-gold" onclick="showPage(\'products\')">Shop Now</button></div>';
+      } else {
+        el.innerHTML=orders.map(o=>`
+          <div style="background:var(--dark2);border:1px solid rgba(201,149,42,0.1);padding:16px;margin-bottom:14px;">
+            <div style="display:flex;justify-content:space-between;margin-bottom:10px;">
+              <span style="font-size:11px;color:var(--gold);font-weight:600;">#${o.transactionRef||o._id}</span>
+              <span style="font-size:11px;color:var(--stone);">${new Date(o.createdAt).toLocaleDateString()}</span>
+            </div>
+            ${(o.items||[]).map(i=>`<div style="font-size:12px;color:var(--stone2);margin-bottom:4px;">${i.name} (${i.size}) x${i.qty}</div>`).join('')}
+            <div style="display:flex;justify-content:space-between;margin-top:10px;padding-top:10px;border-top:1px solid rgba(201,149,42,0.1);">
+              <span style="font-size:13px;color:var(--cream2);font-weight:600;">₦${Number(o.totalAmount||0).toLocaleString()}</span>
+              <span style="font-size:10px;color:var(--stone);background:var(--dark3);padding:4px 10px;border-radius:2px;">${o.status||'Processing'}</span>
+            </div>
+          </div>`).join('');
+      }
+    } else {
+      el.innerHTML='<div class="loading">Could not load orders</div>';
+    }
+  }catch(e){el.innerHTML='<div class="loading">Could not load orders</div>';}
+}
+
+function switchAccountTab(tab,btn){
+  document.querySelectorAll('.account-tab').forEach(b=>b.classList.remove('active'));
+  document.querySelectorAll('.account-section').forEach(s=>s.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('sec-'+tab).classList.add('active');
+}
+
+async function updateProfile(){
+  if(!currentUser) return;
+  const name=document.getElementById('profileName').value.trim();
+  const phone=document.getElementById('profilePhone').value.trim();
+  if(!name){showToast('Please enter your name');return;}
+  try{
+    const res=await fetch(API_URL+'/api/user/'+currentUser._id,{method:'PUT',headers:{'Content-Type':'application/json','Authorization':'Bearer '+currentUser.token},body:JSON.stringify({name,phone})});
+    if(res.ok){
+      currentUser.name=name;currentUser.phone=phone;
+      localStorage.setItem('fbp_user',JSON.stringify(currentUser));
+      updateAccountNav();showToast('Profile updated ✓');
+    }else{showToast('Update failed. Try again.');}
+  }catch(e){showToast('Update failed. Try again.');}
+  }
+
+  async function requestWithdrawal(){
+  if(!currentUser){showToast('Please login first');return;}
+  const accName=document.getElementById('wAccName').value.trim();
+  const bank=document.getElementById('wBank').value.trim();
+  const accNum=document.getElementById('wAccNum').value.trim();
+  const amount=Number(document.getElementById('wAmount').value);
+  if(!accName||!bank||!accNum||!amount){showToast('Please fill in all withdrawal fields');return;}
+  if(amount<500){showToast('Minimum withdrawal is ₦500');return;}
+  const balance=currentUser.walletBalance||0;
+  if(amount>balance){showToast('Insufficient wallet balance');return;}
+  try{
+    const res=await fetch(API_URL+'/api/withdrawal',{method:'POST',headers:{'Content-Type':'application/json','Authorization':'Bearer '+currentUser.token},body:JSON.stringify({userId:currentUser._id,accName,bank,accNum,amount})});
+    if(res.ok){showToast('Withdrawal request sent ✓');document.getElementById('wAmount').value='';}
+    else{showToast('Withdrawal failed. Try again.');}
+  }catch(e){showToast('Withdrawal failed. Try again.');}
+}
+
+function showToast(msg){
+  const t=document.getElementById('toast');
+  t.textContent=msg;t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),2800);
+}
+
+window.addEventListener('DOMContentLoaded', init);
+</script>
+</body>
+</html>
