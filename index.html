@@ -410,13 +410,19 @@ footer{background:var(--dark);padding:48px 24px 24px;border-top:1px solid rgba(2
 <!-- PRODUCTS -->
 <div id="products" class="page">
   <div class="page-header"><div class="page-header-glow"></div><h1>The Collection</h1><p>Discover every piece</p></div>
-  <div class="filters">
-    <button class="filter-btn active" onclick="filterProducts('all',this)">All</button>
-    <button class="filter-btn" onclick="filterProducts('Dresses',this)">Dresses</button>
-    <button class="filter-btn" onclick="filterProducts('Traditional Wear',this)">Traditional</button>
-    <button class="filter-btn" onclick="filterProducts('Jumpsuits',this)">Jumpsuits</button>
-    <button class="filter-btn" onclick="filterProducts('Sets',this)">Sets</button>
-    <button class="filter-btn" onclick="filterProducts('Outerwear',this)">Outerwear</button>
+  <div class="filters" id="genderFilters">
+    <button class="filter-btn active" onclick="filterGender('all',this)">All</button>
+    <button class="filter-btn" onclick="filterGender('Women',this)">Women</button>
+    <button class="filter-btn" onclick="filterGender('Men',this)">Men</button>
+  </div>
+  <div class="filters" id="categoryFilters">
+    <button class="filter-btn active" onclick="filterCategory('all',this)">All</button>
+    <button class="filter-btn" onclick="filterCategory('Dresses',this)">Dresses</button>
+    <button class="filter-btn" onclick="filterCategory('Traditional Wear',this)">Traditional</button>
+    <button class="filter-btn" onclick="filterCategory('Jumpsuits',this)">Jumpsuits</button>
+    <button class="filter-btn" onclick="filterCategory('Sets',this)">Sets</button>
+    <button class="filter-btn" onclick="filterCategory('Outerwear',this)">Outerwear</button>
+    <button class="filter-btn" onclick="filterCategory('Jewellery',this)">Jewellery</button>
   </div>
   <div class="products-section"><div class="product-grid" id="allProductGrid"><div class="loading">Loading collection...</div></div></div>
 </div>
@@ -685,16 +691,33 @@ function renderHomeProducts(){
   g.innerHTML=items.length>0?`<div class="product-grid">${items.map(p=>productCardHTML(p)).join('')}</div>`:'<div class="loading">No products yet</div>';
 }
 
-function renderAllProducts(filter='all'){
+let activeGender='all';
+let activeCategory='all';
+
+function renderAllProducts(){
   const g=document.getElementById('allProductGrid');
-  const items=filter==='all'?products:products.filter(p=>p.category===filter);
-  g.innerHTML=items.length>0?items.map(p=>productCardHTML(p)).join(''):'<div class="loading">No products in this category</div>';
+  let items=products;
+  if(activeGender!=='all') items=items.filter(p=>Array.isArray(p.gender)?p.gender.includes(activeGender):true);
+  if(activeCategory!=='all') items=items.filter(p=>p.category===activeCategory);
+  g.innerHTML=items.length>0?items.map(p=>productCardHTML(p)).join(''):'<div class="loading">No products found</div>';
+}
+
+function filterGender(gender,btn){
+  activeGender=gender;
+  document.querySelectorAll('#genderFilters .filter-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  renderAllProducts();
+}
+
+function filterCategory(cat,btn){
+  activeCategory=cat;
+  document.querySelectorAll('#categoryFilters .filter-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  renderAllProducts();
 }
 
 function filterProducts(filter,btn){
-  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
-  btn.classList.add('active');
-  renderAllProducts(filter);
+  filterCategory(filter,btn);
 }
 
 function showPage(page){
@@ -714,7 +737,8 @@ function openProduct(id){
   document.getElementById('detailName').textContent=currentProduct.name;
   document.getElementById('detailPrice').textContent='₦'+Number(currentProduct.price).toLocaleString();
   document.getElementById('detailDesc').textContent=currentProduct.description||'';
-  document.getElementById('detailCat').textContent=currentProduct.category||'Fashion';
+  const genderLabel=Array.isArray(currentProduct.gender)&&currentProduct.gender.length>0?currentProduct.gender.join(' / '):null;
+  document.getElementById('detailCat').textContent=(currentProduct.category||'Fashion')+(genderLabel?' · '+genderLabel:'');
   const imgEl=document.getElementById('detailImg');
   imgEl.innerHTML=(currentProduct.images&&currentProduct.images.length>0)?`<img src="${currentProduct.images[0]}" alt="${currentProduct.name}">`:`<div class="product-img-placeholder" style="height:100%"><span style="font-size:64px">👗</span></div>`;
   const colours=Array.isArray(currentProduct.colours)?currentProduct.colours:[currentProduct.colours||'Default'];
